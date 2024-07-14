@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../styles/Hero.css';
 import '../styles/Credit.css';
 
@@ -18,23 +18,26 @@ interface CreaturePosition {
 }
 
 const Hero: React.FC = () => {
-  const backgroundCanvasRef = useRef<HTMLCanvasElement>(null);
-  const particleCanvasRef = useRef<HTMLCanvasElement>(null);
+  const backgroundCanvasRef = useRef<HTMLCanvasElement>(null!);
+  const particleCanvasRef = useRef<HTMLCanvasElement>(null!);
   const [creatures, setCreatures] = useState<CreaturePosition[]>([]);
-  const heroRef = useRef<HTMLElement>(null);
+  const heroRef = useRef<HTMLElement>(null!);
 
   useEffect(() => {
-    if (backgroundCanvasRef.current) {
-      const ctx = backgroundCanvasRef.current.getContext('2d');
+    const backgroundCanvas = backgroundCanvasRef.current;
+    const particleCanvas = particleCanvasRef.current;
+
+    if (backgroundCanvas) {
+      const ctx = backgroundCanvas.getContext('2d');
       if (ctx) {
-        initStarryBackground(backgroundCanvasRef.current, ctx);
+        initStarryBackground(backgroundCanvas, ctx);
       }
     }
 
     // Set up particle canvas
-    if (particleCanvasRef.current) {
-      particleCanvasRef.current.width = window.innerWidth;
-      particleCanvasRef.current.height = window.innerHeight;
+    if (particleCanvas) {
+      particleCanvas.width = window.innerWidth;
+      particleCanvas.height = window.innerHeight;
     }
 
     // Initialize creature positions
@@ -42,13 +45,13 @@ const Hero: React.FC = () => {
 
     // Handle window resize
     const handleResize = () => {
-      if (backgroundCanvasRef.current) {
-        backgroundCanvasRef.current.width = window.innerWidth;
-        backgroundCanvasRef.current.height = window.innerHeight;
+      if (backgroundCanvas) {
+        backgroundCanvas.width = window.innerWidth;
+        backgroundCanvas.height = window.innerHeight;
       }
-      if (particleCanvasRef.current) {
-        particleCanvasRef.current.width = window.innerWidth;
-        particleCanvasRef.current.height = window.innerHeight;
+      if (particleCanvas) {
+        particleCanvas.width = window.innerWidth;
+        particleCanvas.height = window.innerHeight;
       }
       setCreatures(generateCreaturePositions(5));
     };
@@ -63,9 +66,9 @@ const Hero: React.FC = () => {
   const generateCreaturePositions = (count: number): CreaturePosition[] => {
     const newPositions: CreaturePosition[] = [];
     const heroElement = heroRef.current;
-    const footerElement = document.querySelector('.features') as HTMLElement;
+    const footerElement = document.querySelector('.features');
 
-    if (heroElement && footerElement) {
+    if (heroElement && footerElement instanceof HTMLElement) {
       const minY = 0;
       const maxY = footerElement.offsetTop - 100; // 100px above the footer
 
@@ -81,11 +84,12 @@ const Hero: React.FC = () => {
   };
 
   const handleCreatureClick = (index: number) => {
-    if (particleCanvasRef.current) {
-      const ctx = particleCanvasRef.current.getContext('2d');
+    const particleCanvas = particleCanvasRef.current;
+    if (particleCanvas) {
+      const ctx = particleCanvas.getContext('2d');
       if (ctx) {
-        const creatureElement = document.querySelector(`.creature-${index}`) as HTMLImageElement;
-        if (creatureElement) {
+        const creatureElement = document.querySelector(`.creature-${index}`);
+        if (creatureElement instanceof HTMLImageElement) {
           const rect = creatureElement.getBoundingClientRect();
           disintegrateCreature(ctx, rect.left + rect.width / 2, rect.top + rect.height / 2);
 
