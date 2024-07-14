@@ -153,6 +153,7 @@ const Hero: React.FC = () => {
 };
 
 function initStarryBackground(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) {
+  if (!ctx) return;
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
@@ -169,6 +170,7 @@ function initStarryBackground(canvas: HTMLCanvasElement, ctx: CanvasRenderingCon
   }
 
   function drawStars() {
+    if (!ctx) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
     stars.forEach(star => {
@@ -193,6 +195,7 @@ function initStarryBackground(canvas: HTMLCanvasElement, ctx: CanvasRenderingCon
 }
 
 function disintegrateCreature(ctx: CanvasRenderingContext2D, x: number, y: number) {
+  if (!ctx) return;
   const particles: Particle[] = [];
   const particleCount = 100;
 
@@ -208,6 +211,7 @@ function disintegrateCreature(ctx: CanvasRenderingContext2D, x: number, y: numbe
   }
 
   function animateParticles() {
+    if (!ctx) return;
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
     particles.forEach((particle, index) => {
