@@ -1,23 +1,44 @@
 import React from 'react';
+import { Users, Trophy } from 'lucide-react';
 import '../styles/Features.css';
 
-const Features: React.FC = () => {
+const FeatureCard = ({ title, description, icon, image }) => (
+  <div className="feature-card">
+    <div className="feature-content">
+      {icon && <div className="feature-icon">{icon}</div>}
+      <h3>{title}</h3>
+      <p>{description}</p>
+    </div>
+    {image && (
+      <div className="feature-image-container">
+        <img src={image} alt={title} className="feature-image" />
+      </div>
+    )}
+  </div>
+);
+
+const Features = () => {
   return (
     <section className="features">
-      <h2 className="features-title">Prepare for Your Mythical Journey</h2>
-      <div className="feature-list">
-        <div className="feature-item">
-          <h3>Magical Hatchery</h3>
-          <p>Incubate and hatch rare mythical creatures.</p>
-        </div>
-        <div className="feature-item">
-          <h3>Creature Collection</h3>
-          <p>Build your own menagerie of fantastic beasts.</p>
-        </div>
-        <div className="feature-item">
-          <h3>Epic Adventures</h3>
-          <p>Embark on quests in a magical realm.</p>
-        </div>
+      <h2 className="features-title">Embark on Your Mythical Journey</h2>
+      <div className="feature-grid">
+        <FeatureCard
+          title="Mythical Lobby"
+          description="Join a vibrant community of fellow adventurers in our immersive mythical lobby."
+          icon={<Users />}
+          image="/mythical-lobby.png"
+        />
+        <FeatureCard
+          title="Creature Collection"
+          description="Collect and nurture a diverse array of mythical creatures in your own magical menagerie."
+          image="/mythical-collection.png"
+        />
+        <FeatureCard
+          title="Character Progression"
+          description="Level up your hero, unlock powerful abilities, and customize your mythical avatar."
+          icon={<Trophy />}
+          image="/mythical-profile.png"
+        />
       </div>
     </section>
   );

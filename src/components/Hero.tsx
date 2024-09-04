@@ -125,7 +125,7 @@ const Hero: React.FC = () => {
       <div className="hero-content">
         <h1 className="hero-title">MYTHICAL</h1>
         <p className="hero-subtitle">A Legendary Discord Adventure Bot</p>
-        <p className="coming-soon">Coming Soon to Your Discord Server</p>
+        <a className="coming-soon" href="https://discord.gg/JJw53tsMcq" target="_blank">Need support? click to join our server.</a>
       </div>
       <div className="floating-creatures">
         {creatures.map((creature, index) => (
