@@ -1,7 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import '../styles/MagicalPortal.css';
 
-const MagicalPortal = ({ onClick }) => {
+type MagicalPortalProps = {
+  onClick: () => void;
+};
+
+const MagicalPortal: React.FC<MagicalPortalProps> = ({ onClick }) => {
   const [isAtBottom, setIsAtBottom] = useState(false);
 
   useEffect(() => {

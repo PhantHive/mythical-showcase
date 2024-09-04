@@ -1,8 +1,16 @@
-import React from 'react';
+// src/components/Features.tsx
 import { Users, Trophy } from 'lucide-react';
 import '../styles/Features.css';
+import React from "react";
 
-const FeatureCard = ({ title, description, icon, image }) => (
+type FeatureCardProps = {
+  title: string;
+  description: string;
+  icon?: React.ReactNode; // Allow icon to be a React element and make it optional
+  image: string;
+};
+
+const FeatureCard: React.FC<FeatureCardProps> = ({ title, description, icon, image }) => (
   <div className="feature-card">
     <div className="feature-content">
       {icon && <div className="feature-icon">{icon}</div>}
