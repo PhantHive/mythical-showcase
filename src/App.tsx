@@ -19,7 +19,7 @@ function App() {
       <Hero />
       <Features />
       <a
-        href="https://discord.com/oauth2/authorize?client_id=1250496056521654393&permissions=8&integration_type=0&scope=bot+applications.commands"
+        href="https://discord.com/oauth2/authorize?client_id=1250496056521654393&permissions=517611048032&integration_type=0&scope=bot+applications.commands"
         target="_blank"
         rel="noopener noreferrer"
         className="invite-button"
