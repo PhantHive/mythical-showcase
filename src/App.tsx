@@ -74,7 +74,7 @@ const AppContent: React.FC = () => {
         <Route path="/#/terms" element={<TermsOfService />} />
         <Route path="/#/privacy" element={<PrivacyPolicy />} />
       </Routes>
-      {(location.pathname === '/terms' || location.pathname === '/#/privacy') && <GoBackButton />}
+      {(location.pathname === '/#/terms' || location.pathname === '/#/privacy') && <GoBackButton />}
     </>
   );
 };
