@@ -45,6 +45,7 @@
 @media (max-width: 768px) {
   .hero {
     padding-top: 8rem; /* Even more top padding for mobile to account for potential multi-line header */
+
   }
 
   .hero-title {
