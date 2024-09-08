@@ -71,16 +71,16 @@ const AppContent: React.FC = () => {
             <MagicalScroll />
           </div>
         } />
-        <Route path="/#/terms" element={<TermsOfService />} />
-        <Route path="/#/privacy" element={<PrivacyPolicy />} />
+        <Route path="/#terms" element={<TermsOfService />} />
+        <Route path="/#privacy" element={<PrivacyPolicy />} />
       </Routes>
-      {(location.pathname === '/#/terms' || location.pathname === '/#/privacy') && <GoBackButton />}
+      {(location.pathname === '/#terms' || location.pathname === '/#privacy') && <GoBackButton />}
     </>
   );
 };
 
 const App: React.FC = () => (
-  <Router basename="/#/">
+  <Router basename="/">
     <AppContent />
   </Router>
 );

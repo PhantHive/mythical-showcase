@@ -21,8 +21,8 @@ const Footer: React.FC = () => {
     <footer className={`footer ${isVisible ? 'visible' : ''}`}>
       <div className="footer-content">
         <div className="footer-links">
-          <a href="/#/privacy">Privacy Policy</a>
-          <a href="/#/terms">Terms of Service</a>
+          <a href="/#privacy">Privacy Policy</a>
+          <a href="/#terms">Terms of Service</a>
         </div>
         <p className="footer-credit">© 2024 Phearion Games • Mythical Bot</p>
         <a href="https://www.youtube.com/@PhearionMusic" target="_blank" rel="noopener noreferrer" className="footer-social">
