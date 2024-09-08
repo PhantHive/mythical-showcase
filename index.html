@@ -2,12 +2,58 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/icon.png" />
+    <link rel="icon" type="image/png" href="/mystic-egg.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MYTHICAL BOT</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CXJWKW5N4C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-CXJWKW5N4C');
+    </script>
+
+    <!-- Cool Metadata -->
+    <meta name="description" content="MYTHICAL BOT - The ultimate bot for your Discord server. Enhance your server with powerful features and seamless integration.">
+    <meta name="keywords" content="MYTHICAL BOT, Discord, Bot, Features, Integration, Server">
+    <meta name="author" content="PhantHive">
+    <meta property="og:title" content="MYTHICAL BOT">
+    <meta property="og:description" content="The ultimate bot for your Discord server. Enhance your server with powerful features and seamless integration.">
+    <meta property="og:image" content="/public/mystic-egg.png">
+    <meta property="og:url" content="https://yourwebsite.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MYTHICAL BOT">
+    <meta name="twitter:description" content="The ultimate bot for your Discord server. Enhance your server with powerful features and seamless integration.">
+    <meta name="twitter:image" content="/public/mystic-egg.png">
   </head>
   <body>
     <div id="root"></div>
+    <div id="cookie-consent-banner" class="cookie-consent-banner" style="display: none;">
+      <img src="/public/mystic-egg.png" alt="Egg Icon" class="cookie-icon">
+      <p class="cookie-text">We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.</p>
+      <button id="accept-cookies" class="accept-cookies-button">Accept</button>
+      <div class="music-controls">
+        <span id="song-title">Phearion's Warriors</span>
+        <button id="mute-button" class="mute-button">🔇</button>
+      </div>
+    </div>
+
+    <audio id="background-music" loop>
+      <source src="/public/background-music.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
     <script type="module" src="/src/main.tsx"></script>
+    <svg width="0" height="0" style="position: absolute;">
+    <filter id="roughpaper" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" result="noise" numOctaves="5" />
+      <feDiffuseLighting in="noise" lighting-color="#fff" surfaceScale="2">
+        <feDistantLight azimuth="45" elevation="60" />
+      </feDiffuseLighting>
+    </filter>
+  </svg>
   </body>
 </html>

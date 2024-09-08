@@ -17,10 +17,10 @@
 }
 
 .cosmic-support-button:hover {
-  background: rgba(138, 43, 226, 0.4);
+  background: rgba(0, 123, 255, 0.4); /* Changed to a different color */
   border-color: rgba(255, 255, 255, 0.4);
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(138, 43, 226, 0.3);
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3); /* Changed to a different color */
 }
 
 .cosmic-icon {
@@ -64,29 +64,4 @@
 .sub-text {
   font-size: 12px;
   opacity: 0.8;
-}
-
-@media (max-width: 768px) {
-  .cosmic-support-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 0 5px;
-    font-size: 20px;
-  }
-
-  .cosmic-icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 8px;
-  }
-
-  .main-text {
-    font-size: 14px;
-  }
-
-  .sub-text {
-    font-size: 10px;
-  }
 }

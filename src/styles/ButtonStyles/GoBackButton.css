@@ -1,0 +1,27 @@
+.go-back-button {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  padding: 10px 20px;
+  background-color: #ffd700;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+.go-back-button:hover {
+  background-color: #ffcc00;
+}
+
+@media (max-width: 768px) {
+  .go-back-button {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}

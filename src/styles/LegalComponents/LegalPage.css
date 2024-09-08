@@ -1,0 +1,79 @@
+.legal-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('/path/to/your/background-image.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Arial', sans-serif;
+  color: #e0e0e0;
+}
+
+.scroll-container {
+  width: 80%;
+  max-width: 800px;
+  height: 80vh;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid #8a2be2;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+}
+
+.scroll-content {
+  padding-right: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #8a2be2;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.discord-links {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.discord-links a {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  background: #8a2be2;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.discord-links a:hover {
+  background: #9b4deb;
+}
+
+/* Scrollbar styles */
+.scroll-container::-webkit-scrollbar {
+  width: 12px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background-color: #8a2be2;
+  border-radius: 6px;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .scroll-container {
+    width: 90%;
+    height: 90vh;
+  }
+}

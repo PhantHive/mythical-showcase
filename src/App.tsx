@@ -1,38 +1,88 @@
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import ParallaxBackground from './components/ParallaxBackground';
 import Hero from './components/Hero';
-import Features from './components/Features';
-import './styles/Global.css';
+import FeatureSection from './components/FeatureSection';
+import Footer from './components/Footer';
+import AddBotButton from './components/ButtonComponents/AddBotButton.tsx';
+import DonateButton from './components/ButtonComponents/DonateButton.tsx';
+import SupportServerButton from './components/ButtonComponents/SupportServerButton.tsx';
+import MagicalScroll from './components/MagicalScroll';
+import CookieConsent from "./components/Cookies/CookieConsent.tsx";
+import MusicControlButton from "./components/ButtonComponents/MusicControlButton.tsx";
+import GoBackButton from "./components/ButtonComponents/GoBackButton.tsx";
+import TermsOfService from './components/LegalComponents/TermsOfService.tsx';
+import PrivacyPolicy from './components/LegalComponents/PrivacyPolicy.tsx';
 import './styles/App.css';
-import CosmicSupportButton from "./components/CosmicSupportButton.tsx";
-import MagicalPortal from "./components/MagicalPortal.tsx";
+import './styles/MobileStyles.css';
 
-function App() {
+const AppContent: React.FC = () => {
+  const location = useLocation();
+  const [isMuted, setIsMuted] = useState(false);
 
-    const scrollToFeatures = () => {
-    const featuresSection = document.querySelector('.features');
-    if (featuresSection) {
-      featuresSection.scrollIntoView({ behavior: 'smooth' });
+  useEffect(() => {
+    const music = document.getElementById('background-music') as HTMLAudioElement;
+    if (music) {
+      music.volume = 0.2; // Set initial volume to low
+      music.play().catch(error => console.log("Audio play failed:", error));
+    }
+  }, []);
+
+  const handleMuteToggle = () => {
+    setIsMuted(!isMuted);
+    const music = document.getElementById('background-music') as HTMLAudioElement;
+    if (music) {
+      music.muted = !isMuted;
     }
   };
 
   return (
-    <div className="app">
-      <Hero />
-      <Features />
-      <a
-        href="https://discord.com/oauth2/authorize?client_id=1250496056521654393&permissions=517611048032&integration_type=0&scope=bot+applications.commands"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="invite-button"
-      >
-        <div className="button-content">
-          <img src="/mystic-egg.png" alt="Mythical Bot" className="invite-icon" />
-          <span className="invite-text">Add to Discord</span>
-        </div>
-      </a>
-        <MagicalPortal onClick={scrollToFeatures} />
-        <CosmicSupportButton />
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={
+          <div className="app">
+            <ParallaxBackground />
+            <CookieConsent />
+            <main>
+              <Hero />
+              <FeatureSection
+                image="mythical-creature.png"
+                title="Collect Cute Creatures"
+                description="Hatch different types of eggs to find rare Luminals"
+              />
+              <FeatureSection
+                image="mythical-reward.png"
+                title="Cosmic Hunts"
+                description="Send your Luminals on thrilling hunts for epic rewards"
+              />
+              <FeatureSection
+                image="mythical-profile.png"
+                title="Showcase Your Journey"
+                description="Display your achievements and favorite Luminal"
+              />
+            </main>
+            <Footer />
+            <div className="floating-buttons">
+              <AddBotButton />
+              <DonateButton />
+              <SupportServerButton />
+              <MusicControlButton isMuted={isMuted} onMuteToggle={handleMuteToggle} />
+            </div>
+            <MagicalScroll />
+          </div>
+        } />
+        <Route path="/terms" element={<TermsOfService />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+      </Routes>
+      {(location.pathname === '/terms' || location.pathname === '/privacy') && <GoBackButton />}
+    </>
   );
-}
+};
+
+const App: React.FC = () => (
+  <Router>
+    <AppContent />
+  </Router>
+);
 
 export default App;

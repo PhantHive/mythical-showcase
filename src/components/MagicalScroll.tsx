@@ -1,33 +1,56 @@
-import React, {useEffect, useState} from 'react';
-import '../styles/MagicalPortal.css';
+import React, { useState, useEffect } from 'react';
+import '../styles/MagicalScroll.css';
 
-type MagicalPortalProps = {
-  onClick: () => void;
-};
-
-const MagicalPortal: React.FC<MagicalPortalProps> = ({ onClick }) => {
+const MagicalScroll: React.FC = () => {
   const [isAtBottom, setIsAtBottom] = useState(false);
+  const [opacity, setOpacity] = useState(1);
 
   useEffect(() => {
     const handleScroll = () => {
-      const isBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100;
-      setIsAtBottom(isBottom);
+      const scrollPosition = window.pageYOffset;
+      const windowHeight = window.innerHeight;
+      const fullHeight = document.documentElement.scrollHeight;
+
+      const atBottom = scrollPosition > fullHeight - windowHeight - 100;
+      setIsAtBottom(atBottom);
+
+      // Log scroll position and atBottom status
+      console.log('Scroll Position:', scrollPosition);
+      console.log('Is at Bottom:', atBottom);
+
+      // Change the "d" attribute of the path element
+      const portalArrow = document.querySelector('.portal-arrow');
+      if (portalArrow) {
+        portalArrow.setAttribute('d', atBottom ? 'M50 40 L60 60 L40 60 Z' : 'M50 60 L60 40 L40 40 Z');
+      }
+
+      // Calculate opacity based on proximity to bottom
+      if (scrollPosition > fullHeight - windowHeight - 300) {
+        const newOpacity = 1 - (scrollPosition - (fullHeight - windowHeight - 300)) / 300;
+        setOpacity(Math.max(0.3, newOpacity)); // Minimum opacity of 0.3
+      } else {
+        setOpacity(1);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleClick = () => {
+  const scrollToTopOrBottom = () => {
     if (isAtBottom) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      onClick();
+      window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
     }
   };
 
   return (
-    <div className="magical-portal" onClick={handleClick}>
+    <div
+      className={`magical-scroll ${isAtBottom ? 'at-bottom' : ''}`}
+      onClick={scrollToTopOrBottom}
+      style={{ opacity }}
+    >
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="portalGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
@@ -48,26 +71,10 @@ const MagicalPortal: React.FC<MagicalPortalProps> = ({ onClick }) => {
           <path className="portal-swirl" d="M50 15 C 60 30, 70 30, 85 50 S 70 70, 50 85 S 30 70, 15 50 S 30 30, 50 15" fill="none" stroke="#a349a4" strokeWidth="2" />
           <path className="portal-swirl" d="M50 25 C 65 35, 65 35, 75 50 S 65 65, 50 75 S 35 65, 25 50 S 35 35, 50 25" fill="none" stroke="#7b1fa2" strokeWidth="2" />
         </g>
-        <g className="portal-stars" fill="#ffffff">
-          <circle cx="30" cy="30" r="1">
-            <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" />
-          </circle>
-          <circle cx="70" cy="70" r="1">
-            <animate attributeName="opacity" values="0;1;0" dur="3s" begin="1s" repeatCount="indefinite" />
-          </circle>
-          <circle cx="50" cy="20" r="1">
-            <animate attributeName="opacity" values="0;1;0" dur="3s" begin="2s" repeatCount="indefinite" />
-          </circle>
-        </g>
-        <path
-          className="portal-arrow"
-          d={isAtBottom ? "M50 40 L40 55 L60 55 Z" : "M50 60 L40 45 L60 45 Z"}
-          fill="#ffffff"
-          opacity="0.7"
-        />
+        <path className="portal-arrow" d="M50 60 L60 40 L40 40 Z" fill="#ffffff" opacity="0.7" />
       </svg>
     </div>
   );
 };
 
-export default MagicalPortal;
+export default MagicalScroll;
