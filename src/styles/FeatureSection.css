@@ -58,7 +58,7 @@
   transform: scale(1.05); /* Slight zoom effect on hover */
 }
 
-@media (max-width: 768px) {
+@media (max-width: 950px) {
   .feature-section {
     flex-direction: column;
     text-align: center;

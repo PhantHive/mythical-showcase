@@ -9,6 +9,10 @@
   padding: 0;
 }
 
+.main-content {
+  padding-bottom: 10vh; /* Adjust this value as needed */
+}
+
 .content {
   width: 100%;
   flex-grow: 1;
