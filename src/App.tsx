@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import {  HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import ParallaxBackground from './components/ParallaxBackground';
 import Hero from './components/Hero';
 import FeatureSection from './components/FeatureSection';
