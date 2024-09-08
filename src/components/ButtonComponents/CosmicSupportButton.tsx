@@ -1,4 +1,3 @@
-import React from 'react';
 import '../../styles/ButtonStyles/CosmicSupportButton.css';
 
 const CosmicSupportButton = () => {

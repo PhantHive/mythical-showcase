@@ -4,7 +4,7 @@ import '../styles/ParallaxBackground.css';
 const ParallaxBackground: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
-      const parallax = document.querySelector('.parallax-background');
+      const parallax = document.querySelector('.parallax-background') as HTMLElement | null;
       if (parallax) {
         const scrollPosition = window.pageYOffset;
         const scale = 1 + scrollPosition * 0.001; // Adjust the scaling factor as needed

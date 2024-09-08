@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import '../../styles/Cookies/CookieConsent.css';
 
 const CookieConsent = () => {
-  const [isMuted, setIsMuted] = useState(false);
   const [showBanner, setShowBanner] = useState(false);
 
   useEffect(() => {

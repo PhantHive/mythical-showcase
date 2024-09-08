@@ -7,7 +7,7 @@ const GoBackButton: React.FC = () => {
 
   return (
     <button className="go-back-button" onClick={() => navigate(-1)}>
-      Mythical Go Back
+      Go Back to Mythical website
     </button>
   );
 };
