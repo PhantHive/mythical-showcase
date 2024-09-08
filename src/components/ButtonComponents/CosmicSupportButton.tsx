@@ -3,7 +3,7 @@ import '../../styles/ButtonStyles/CosmicSupportButton.css';
 const CosmicSupportButton = () => {
   return (
     <a
-      href="https://paypal.me/phearion?country.x=FR&locale.x=fr_FR"
+      href="https://paypal.me/phearion?locale.x=en_US"
       target="_blank"
       rel="noopener noreferrer"
       className="cosmic-support-button"
