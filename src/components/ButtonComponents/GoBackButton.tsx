@@ -1,12 +1,13 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import '../../styles/ButtonStyles/GoBackButton.css';
 
 const GoBackButton: React.FC = () => {
-  const navigate = useNavigate();
+  const handleGoBack = () => {
+    window.history.back();
+  };
 
   return (
-    <button className="go-back-button" onClick={() => navigate(-1)}>
+    <button className="go-back-button" onClick={handleGoBack}>
       Go Back to Mythical website
     </button>
   );
