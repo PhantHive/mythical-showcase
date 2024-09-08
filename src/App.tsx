@@ -80,7 +80,7 @@ const AppContent: React.FC = () => {
 };
 
 const App: React.FC = () => (
-  <Router basename="/">
+  <Router basename="/#/">
     <AppContent />
   </Router>
 );
