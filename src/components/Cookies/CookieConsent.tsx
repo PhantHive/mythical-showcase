@@ -26,14 +26,14 @@ const CookieConsent = () => {
     <>
       {showBanner && (
         <div id="cookie-consent-banner" className="cookie-consent-banner">
-          <img src="/public/mystic-egg.png" alt="Egg Icon" className="cookie-icon" />
+          <img src="/mystic-egg.png" alt="Egg Icon" className="cookie-icon" />
           <p>We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.</p>
           <button id="accept-cookies" className="accept-cookies-button" onClick={handleAcceptCookies}>
             Accept
           </button>
         </div>
       )}
-      <audio id="background-music" src="/public/Phearion's warriors.mp3" loop></audio>
+      <audio id="background-music" src="/Phearion's warriors.mp3" loop></audio>
     </>
   );
 };

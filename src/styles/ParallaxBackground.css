@@ -14,7 +14,7 @@
   left: -10%;
   width: 120%;
   height: 120%;
-  background-image: url('/public/mythical-background.png');
+  background-image: url('/mythical-background.png');
   background-size: cover;
   background-position: center;
   will-change: transform;

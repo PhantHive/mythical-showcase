@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
         <DynamicText />
         <p className="hero-subtitle">A Legendary Discord Adventure Bot</p>
         <div className="hero-feature">
-          <img src="/public/mythical-lobby.png" alt="Mythical Lobby" className="hero-image" />
+          <img src="/mythical-lobby.png" alt="Mythical Lobby" className="hero-image" />
         </div>
       </div>
     </section>

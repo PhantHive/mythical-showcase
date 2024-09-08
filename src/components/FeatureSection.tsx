@@ -15,7 +15,7 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({ image, title, descripti
         <p className="feature-description">{description}</p>
       </div>
       <div className="feature-image-container">
-        <img src={`/public/${image}`} alt={title} className="feature-image" />
+        <img src={`/${image}`} alt={title} className="feature-image" />
       </div>
     </section>
   );
