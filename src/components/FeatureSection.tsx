@@ -31,22 +31,22 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({ image, title, descripti
   };
 
   const nextCreature = () => {
-    setCurrentCreature((prev) => {
-      const nextIndex = (prev + 1) % creatures[creatureTypes[currentType]].length;
-      if (nextIndex === 0) {
-        setCurrentType((prevType) => (prevType + 1) % creatureTypes.length);
-      }
-      return nextIndex;
-    });
-  };
+  setCurrentCreature((prev) => {
+    const nextIndex = (prev + 1) % creatures[creatureTypes[currentType] as keyof typeof creatures].length;
+    if (nextIndex === 0) {
+      setCurrentType((prevType) => (prevType + 1) % creatureTypes.length);
+    }
+    return nextIndex;
+  });
+};
 
-  const prevCreature = () => {
-    setCurrentCreature((prev) => {
-      if (prev === 0) return prev; // Do not update if already at the first creature
-      const currentCreatures = creatures[creatureTypes[currentType]];
-      return (prev - 1 + currentCreatures.length) % currentCreatures.length;
-    });
-  };
+const prevCreature = () => {
+  setCurrentCreature((prev) => {
+    if (prev === 0) return prev; // Do not update if already at the first creature
+    const currentCreatures = creatures[creatureTypes[currentType] as keyof typeof creatures];
+    return (prev - 1 + currentCreatures.length) % currentCreatures.length;
+  });
+};
 
   if (title === "Collect Cute Creatures") {
     const currentCreatureType = creatureTypes[currentType];
