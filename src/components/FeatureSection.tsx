@@ -50,7 +50,7 @@ const prevCreature = () => {
 
   if (title === "Collect Cute Creatures") {
     const currentCreatureType = creatureTypes[currentType];
-    const currentCreatureName = creatures[currentCreatureType][currentCreature];
+    const currentCreatureName = creatures[currentCreatureType as keyof typeof creatures][currentCreature];
 
     return (
       <section className="feature-section">
@@ -62,7 +62,7 @@ const prevCreature = () => {
         <div className="creature-showcase">
           <div
             className="creature-display"
-            style={{ backgroundColor: typeColors[currentCreatureType] }}
+            style={{ backgroundColor: typeColors[currentCreatureType as keyof typeof typeColors] }}
             onClick={handleCreatureClick}
           >
             <img
