@@ -1,0 +1,134 @@
+.luminals-container {
+  background-color: #1a1a2e;
+  color: #ffffff;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.luminals-title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.luminals-columns {
+  display: flex;
+  justify-content: space-between;
+  height: calc(100vh - 200px);
+  gap: 1rem;
+}
+
+.luminal-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 1rem;
+  width: 30%; /* Adjust the width to a percentage of the screen */
+  height: 80vh; /* Adjust the height to a percentage of the screen */
+}
+
+
+.luminal-type-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #ffd700;
+}
+
+.luminal-scroll {
+  overflow: hidden; /* Updated to remove both horizontal and vertical scrollbars */
+  flex-grow: 1;
+  height: 100%; /* Ensure it takes up the full height of the column */
+}
+
+.fairy .luminal-scroll,
+.enchanted .luminal-scroll {
+  overflow: hidden; /* Updated to remove both horizontal and vertical scrollbars */
+}
+
+.mystic .luminal-scroll {
+  overflow: hidden; /* Updated to remove both horizontal and vertical scrollbars */
+}
+
+.luminal-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.luminal-card:hover {
+  transform: scale(1.05);
+}
+
+.luminal-image {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.luminal-name {
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+.fairy { background-color: rgba(74, 144, 226, 0.2); }
+.enchanted { background-color: rgba(155, 89, 182, 0.2); }
+.mystic { background-color: rgba(241, 196, 15, 0.2); }
+
+.buttons-row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem; /* Adjust the gap value to add space between the buttons */
+  margin-top: 2rem;
+}
+
+.back-button {
+  align-self: center;
+  margin-top: 2rem;
+  padding: 0.5rem 1rem;
+  background-color: #ffd700;
+  color: #1a1a2e;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #ffed4a;
+}
+
+@media (max-width: 768px) {
+  .luminals-columns {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .luminal-column {
+    margin-bottom: 2rem;
+    width: 100%;
+    padding: 0;
+  }
+
+  .luminal-scroll {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  .fairy .luminal-scroll,
+  .enchanted .luminal-scroll,
+  .mystic .luminal-scroll {
+    overflow-y: auto;
+  }
+}

@@ -15,6 +15,7 @@ import TermsOfService from './components/LegalComponents/TermsOfService.tsx';
 import PrivacyPolicy from './components/LegalComponents/PrivacyPolicy.tsx';
 import './styles/App.css';
 import './styles/MobileStyles.css';
+import Luminals from "./components/Luminals.tsx";
 
 const AppContent: React.FC = () => {
   const location = useLocation();
@@ -73,6 +74,7 @@ const AppContent: React.FC = () => {
         } />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/luminals" element={<Luminals />} />
       </Routes>
       {(location.pathname === '/terms' || location.pathname === '/privacy') && <GoBackButton />}
     </>
