@@ -2,25 +2,23 @@ import { useEffect, useState } from 'react';
 import '../../styles/Cookies/CookieConsent.css';
 
 const CookieConsent = () => {
-  const [showBanner, setShowBanner] = useState(false);
+  const [showBanner] = useState(false);
 
   useEffect(() => {
-    const cookiesAccepted = document.cookie.split(';').some((item) => item.trim().startsWith('cookies_accepted='));
-    setShowBanner(!cookiesAccepted);
-  }, []);
-
-  const handleAcceptCookies = () => {
-    document.cookie = "cookies_accepted=true; path=/; max-age=" + 60 * 60 * 24 * 365;
-    setShowBanner(false);
-
     const music = document.getElementById('background-music') as HTMLAudioElement;
     if (music) {
-      music.volume = 0.2; // Set initial volume to low
-      music.play().catch(error => {
-        console.error("Music playback failed:", error);
-      });
+      const playMusic = () => {
+        music.volume = 0.2; // Set initial volume to low
+        music.play().catch(error => console.log("Audio play failed:", error));
+      };
+
+      if (music.readyState >= 2) { // HAVE_CURRENT_DATA
+        playMusic();
+      } else {
+        music.addEventListener('canplaythrough', playMusic, { once: true });
+      }
     }
-  };
+  }, []);
 
   return (
     <>

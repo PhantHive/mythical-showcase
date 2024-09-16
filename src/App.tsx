@@ -61,6 +61,11 @@ const AppContent: React.FC = () => {
                 title="Showcase Your Journey"
                 description="Display your achievements and favorite Luminal"
               />
+              <FeatureSection
+                  image="mythical-housing.png"
+                  title="In game housing system!"
+                  description="Decorate your house with furniture, put your favorite luminal to guard your house and more!"
+              />
             </main>
             <Footer />
             <div className="floating-buttons">

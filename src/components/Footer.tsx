@@ -28,6 +28,10 @@ const Footer: React.FC = () => {
         <a href="https://www.youtube.com/@PhearionMusic" target="_blank" rel="noopener noreferrer" className="footer-social">
           Phearion Music
         </a>
+        <a href="https://faultbox.itch.io" target="_blank" rel="noopener noreferrer" className="footer-social">
+          Housing by Faultbox
+        </a>
+        <p className="footer-credit">Our graphist: <a href="https://maya-design.cloud" target="_blank" rel="noopener noreferrer">maya-design.eu</a></p>
       </div>
     </footer>
   );
