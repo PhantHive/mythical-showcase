@@ -24,7 +24,9 @@ const AppContent: React.FC = () => {
   useEffect(() => {
     const music = document.getElementById('background-music') as HTMLAudioElement;
     if (music) {
+      music.src = '/Lumières de Phearion.mp3'; // Update the music file
       music.volume = 0.2; // Set initial volume to low
+      music.loop = true; // Ensure the music loops
       music.play().catch(error => console.log("Audio play failed:", error));
     }
   }, []);

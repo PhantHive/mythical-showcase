@@ -9,7 +9,7 @@ interface MusicControlButtonProps {
 const MusicControlButton: React.FC<MusicControlButtonProps> = ({ isMuted, onMuteToggle }) => {
   return (
     <button className="music-control-button" onClick={onMuteToggle}>
-      {isMuted ? '🔇' : '🔊'} {isMuted ? 'Unmute' : 'Mute'} Phearion's Warriors
+      {isMuted ? '🔇' : '🔊'} {isMuted ? 'Unmute' : 'Mute'} Lumières de Phearion
     </button>
   );
 };
