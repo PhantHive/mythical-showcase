@@ -8,61 +8,51 @@
   z-index: -1;
 }
 
-.video-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.background-video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  transform: translateX(-50%) translateY(-50%);
-  object-fit: cover;
-  z-index: -1;
-}
-
-.video-overlay {
+.parallax-background {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-.patch-announcement {
-  color: #fff;
-  font-size: 3rem;
-  text-align: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-}
-
-.parallax-background {
-  position: absolute;
-  top: 100vh;
-  left: 0;
-  width: 100%;
-  height: 100vh;
   background-image: url('/public/mythical-background.png');
   background-size: cover;
-  background-position: center top;
+  background-position: center;
   background-repeat: no-repeat;
   will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+.dark-side {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(76,0,130,0.7));
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.spider-web {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.dark-side[style*="opacity: 1"] .spider-web {
+  opacity: 1;
+}
+
+.spider {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  transition: all 0.5s ease-out;
 }
 
 .glow-border {
@@ -72,13 +62,22 @@
   right: 0;
   bottom: 0;
   pointer-events: none;
-  box-shadow: inset 0 0 20px rgba(255, 215, 0, 0.3);
+  box-shadow: inset 0 0 20px rgba(255, 165, 0, 0.5);
   z-index: 10;
 }
 
-/*oon mobile version we avoid the patch announcement*/
+.halloween-item {
+  position: absolute;
+  z-index: 2;
+  transition: transform 0.3s ease-in-out;
+}
+
+.halloween-item:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
 @media (max-width: 768px) {
-  .patch-announcement {
-    display: none;
+  .halloween-item {
+    width: 40px !important;
   }
 }

@@ -16,9 +16,9 @@ const typeColors = {
 };
 
 const creatures = {
-  Fairy: ['Brushy.png', 'Labali.png', 'Lumi.png', 'Pawnee.png', 'Pioupy.png', 'Syrex.png', 'Yumiko.png'],
-  Enchanted: ['Blutari.png', 'Faber.png', 'Pandora.png', 'Prismetia.png', 'Redari.png', 'Vegat.png'],
-  Mystic: ['Nufair.png']
+  Fairy: ['Brushy.png', 'Labali.png', 'Lumi.png', 'Pawnee.png', 'Pioupy.png', 'Syrex.png', 'Yumiko.png', 'Umella.png', 'Mentari.png'],
+  Enchanted: ['Blutari.png', 'Faber.png', 'Pandora.png', 'Prismetia.png', 'Redari.png', 'Vegat.png', 'Cloufy.png'],
+  Mystic: ['Nufair.png', 'Solarian.png', 'Yume.png']
 };
 
 const FeatureSection: React.FC<FeatureSectionProps> = ({ image, title, description }) => {
@@ -85,7 +85,7 @@ const prevCreature = () => {
   }
 
   return (
-    <section className="feature-section">
+    <section className="feature-section" data-title={title}>
       <div className="feature-content">
         <h2 className="feature-title">{title}</h2>
         <p className="feature-description">{description}</p>

@@ -66,7 +66,7 @@ const AppContent: React.FC = () => {
               <FeatureSection
                   image="mythical-housing.png"
                   title="In game housing system!"
-                  description="Decorate your house with furniture, put your favorite luminal to guard your house and more!"
+                  description="Decorate and manage your house with furnitures, put your favorite luminal to guard your house and more!"
               />
             </main>
             <Footer />

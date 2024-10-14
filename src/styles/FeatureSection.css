@@ -55,6 +55,11 @@
   box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
 }
 
+.feature-section[data-title="In game housing system!"] .feature-image:last-of-type:hover {
+  transform: scale(1.1);
+  content: url('/public/mythical-housing-2.png');
+}
+
 .prismatic-button {
   padding: 0.5rem 1rem;
   background: linear-gradient(45deg, #ff6ec4, #7873f5, #4a90e2, #50c9c3, #96fbc4);
