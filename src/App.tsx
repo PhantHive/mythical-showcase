@@ -16,6 +16,7 @@ import PrivacyPolicy from './components/LegalComponents/PrivacyPolicy.tsx';
 import './styles/App.css';
 import './styles/MobileStyles.css';
 import Luminals from "./components/Luminals.tsx";
+import WinterGuide from "./components/winter/WinterGuide.tsx";
 
 const AppContent: React.FC = () => {
   const location = useLocation();
@@ -79,6 +80,7 @@ const AppContent: React.FC = () => {
             <MagicalScroll />
           </div>
         } />
+        <Route path="/winter-guide" element={<WinterGuide />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/luminals" element={<Luminals />} />
