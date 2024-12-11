@@ -6,9 +6,9 @@ const creatureTypes = ['Fairy', 'Enchanted', 'Mystic'] as const;
 type CreatureType = typeof creatureTypes[number];
 
 const creatures: Record<CreatureType, string[]> = {
-  Fairy: ['Brushy.png', 'Labali.png', 'Lumi.png', 'Pawnee.png', 'Pioupy.png', 'Syrex.png', 'Yumiko.png', 'Umella.png', 'Mentari.png'],
-  Enchanted: ['Blutari.png', 'Faber.png', 'Pandora.png', 'Prismetia.png', 'Redari.png', 'Vegat.png', 'Cloufy.png'],
-  Mystic: ['Nufair.png', 'Solarian.png', 'Yume.png']
+  Fairy: ['Brushy.png', 'Labali.png', 'Lumi.png', 'Pawnee.png', 'Pioupy.png', 'Syrex.png', 'Yumiko.png', 'Umella.png', 'Mentari.png', 'Merrycal.png', 'Thundy.png', 'Raizu.png', 'Mavi.png'],
+  Enchanted: ['Blutari.png', 'Faber.png', 'Pandora.png', 'Prismetia.png', 'Redari.png', 'Vegat.png', 'Cloufy.png', 'Wadoon.png', 'PoliPoli.png', 'Blizou.png'],
+  Mystic: ['Nufair.png', 'Yume.png', 'Solarian.png', 'Oltar.png', 'Woka.png']
 };
 
 const Luminals: React.FC = () => {

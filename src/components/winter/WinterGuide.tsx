@@ -90,7 +90,7 @@ const WinterGuide = () => {
                             <RewardCard
                                 title="Golden Ball"
                                 reward="10 🍫"
-                                description="Place in #mythical-tree channel"
+                                description="Place any ball in the #mythical-tree channel to unlock this golden ball that you can place to earn extra chocolate."
                             />
                         </div>
                     </section>
