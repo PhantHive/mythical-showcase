@@ -155,7 +155,7 @@ const WinterGuide = () => {
                     </section>
 
                     <section className="winter-section">
-                        <h2 className="winter-section-title">Coming December 20th (Skin preview the 15th of
+                        <h2 className="winter-section-title">Coming December 25th (Skin preview the 20th of
                             December)</h2>
                         <motion.div
                             className="winter-cardinal"
@@ -182,6 +182,12 @@ const WinterGuide = () => {
                                     <p className="winter-creature-type">Winter Fairy</p>
                                     <p className="winter-creature-rarity">★★</p>
                                 </div>
+                                <img src="/creatures/Fairy/Nowmi.png" alt="Nowmi"/>
+                                <div className="winter-creature-info">
+                                    <h3>Nowmi</h3>
+                                    <p className="winter-creature-type">Winter Fairy</p>
+                                    <p className="winter-creature-rarity">★★</p>
+                                </div>
                             </motion.div>
 
                             <motion.div
@@ -191,6 +197,18 @@ const WinterGuide = () => {
                                 <img src="/creatures/Enchanted/Blizou.png" alt="Enchanted Blizou"/>
                                 <div className="winter-creature-info">
                                     <h3>Enchanted Blizou</h3>
+                                    <p className="winter-creature-type">Winter Enchanted</p>
+                                    <p className="winter-creature-rarity">★★★★</p>
+                                </div>
+                                <img src="/creatures/Enchanted/Huky.png" alt="Enchanted Huky"/>
+                                <div className="winter-creature-info">
+                                    <h3>Enchanted Huky</h3>
+                                    <p className="winter-creature-type">Winter Enchanted</p>
+                                    <p className="winter-creature-rarity">★★★★</p>
+                                </div>
+                                <img src="/creatures/Enchanted/Zahakyu.png" alt="Enchanted Zahakyu"/>
+                                <div className="winter-creature-info">
+                                    <h3>Enchanted Zahakyu</h3>
                                     <p className="winter-creature-type">Winter Enchanted</p>
                                     <p className="winter-creature-rarity">★★★★</p>
                                 </div>
