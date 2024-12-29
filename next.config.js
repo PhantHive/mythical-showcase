@@ -2,8 +2,8 @@
 const nextConfig = {
     // GitHub Pages configuration
     output: 'export',
+    assetPrefix: 'https://mythical.phearion.fr/mythical-showcase',
     basePath: process.env.GITHUB_ACTIONS ? '/mythical-showcase' : '',
-    assetPrefix: process.env.GITHUB_ACTIONS ? '/mythical-showcase/' : '',
 
     // Images configuration
     images: {
