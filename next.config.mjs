@@ -1,5 +1,9 @@
 import path from 'path';
-import fs from 'fs';
+import { fileURLToPath } from 'url';
+
+// Get the directory name in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -14,22 +18,9 @@ const nextConfig = {
   reactStrictMode: true,
 
   // Webpack configuration
-  webpack: (config, { isServer }) => {
+  webpack: (config) => {
     // Explicitly set up module resolution
     config.resolve.alias['@'] = path.resolve(__dirname, 'src');
-
-    // Debug logging for module resolution
-    config.plugins.push(new (require('webpack')).DefinePlugin({
-      'process.env.NEXT_DEBUG_MODULE_RESOLUTION': JSON.stringify('true')
-    }));
-
-    // Log existing aliases
-    console.log('Webpack Aliases:', config.resolve.alias);
-
-    // Verify file existence
-    const cookieConsentPath = path.resolve(__dirname, 'src/components/cookies/CookieConsent.tsx');
-    console.log('Checking CookieConsent path:', cookieConsentPath);
-    console.log('CookieConsent file exists:', fs.existsSync(cookieConsentPath));
 
     return config;
   },
