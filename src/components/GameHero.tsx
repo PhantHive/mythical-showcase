@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { FaDiscord, FaDonate, FaSnowflake, FaGlobe } from 'react-icons/fa';
+import { FaDiscord, FaDonate, FaSnowflake, FaGlobe, FaEnvelope } from 'react-icons/fa';
 
 const GameHero = () => {
     const [hoveredCard, setHoveredCard] = useState<string | null>(null);
@@ -61,8 +61,9 @@ const GameHero = () => {
                 href: 'https://paypal.me/phearion?country.x=FR&locale.x=fr_FR',
             },
             secondaryAction: {
-                label: 'Our Team',
-                href: '#footer',
+                label: 'Feedback',
+                icon: <FaEnvelope />,
+                href: 'mailto:hestia@phearion.fr',
             },
         },
     ];
@@ -164,9 +165,13 @@ const GameHero = () => {
                                         </motion.div>
                                     </div>
 
-                                    <div className="flex-1 mb-4">
-                                        <h3 className="mb-2 text-xl font-bold text-white">{card.title}</h3>
-                                        <p className="text-sm text-purple-200">{card.description}</p>
+                                    <div className="mb-4 flex-1">
+                                        <h3 className="mb-2 text-xl font-bold text-white">
+                                            {card.title}
+                                        </h3>
+                                        <p className="text-sm text-purple-200">
+                                            {card.description}
+                                        </p>
                                     </div>
 
                                     <AnimatePresence mode="wait">
@@ -179,24 +184,34 @@ const GameHero = () => {
                                                 transition={{ duration: 0.2 }}
                                             >
                                                 <motion.button
-                                                    onClick={() => window.location.href = card.primaryAction.href}
+                                                    onClick={() =>
+                                                        (window.location.href =
+                                                            card.primaryAction.href)
+                                                    }
                                                     className="flex w-full items-center justify-center gap-2 rounded-lg bg-purple-600 px-4 py-2 text-white transition-all hover:bg-purple-700"
                                                     whileHover={{ scale: 1.02 }}
                                                     whileTap={{ scale: 0.98 }}
                                                 >
                                                     {card.primaryAction.icon && (
-                                                        <span className="text-xl">{card.primaryAction.icon}</span>
+                                                        <span className="text-xl">
+                                                            {card.primaryAction.icon}
+                                                        </span>
                                                     )}
                                                     {card.primaryAction.label}
                                                 </motion.button>
                                                 <motion.button
-                                                    onClick={() => window.location.href = card.secondaryAction.href}
+                                                    onClick={() =>
+                                                        (window.location.href =
+                                                            card.secondaryAction.href)
+                                                    }
                                                     className="flex w-full items-center justify-center gap-2 rounded-lg bg-gray-800 px-4 py-2 text-white transition-all hover:bg-gray-700"
                                                     whileHover={{ scale: 1.02 }}
                                                     whileTap={{ scale: 0.98 }}
                                                 >
                                                     {card.secondaryAction.icon && (
-                                                        <span className="text-xl">{card.secondaryAction.icon}</span>
+                                                        <span className="text-xl">
+                                                            {card.secondaryAction.icon}
+                                                        </span>
                                                     )}
                                                     {card.secondaryAction.label}
                                                 </motion.button>
@@ -231,7 +246,7 @@ const GameHero = () => {
                             transition={{
                                 duration: 3,
                                 repeat: Infinity,
-                                ease: "linear",
+                                ease: 'linear',
                             }}
                         />
                     </a>
