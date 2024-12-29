@@ -6,6 +6,7 @@
         "dev": "next dev --turbopack",
         "build": "next build",
         "export": "next export",
+        "deploy": "next build && next export",
         "start": "npx serve@latest out",
         "lint": "next lint",
         "format": "prettier --write .",
