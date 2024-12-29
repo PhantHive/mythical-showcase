@@ -7,8 +7,8 @@ import GameHero from '../GameHero';
 import Cardinals from '@/components/Features/Cardinals';
 import Eggs from '@/components/Features/Eggs';
 import Footer from '../Footer';
-import PrivacyPolicy from '@/app/legal/privacy/page';
-import TermsOfService from '@/app/legal/terms/page';
+import PrivacyPolicy from '@/pages/legal/privacy/page';
+import TermsOfService from '@/pages/legal/terms/page';
 import WinterGuide from '@/components/Special/WinterGuide';
 import House from '@/components/Features/House';
 

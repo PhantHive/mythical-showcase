@@ -9,25 +9,52 @@ const inter = Inter({ subsets: ['latin'] });
 const basePath = process.env.GITHUB_PAGES ? '/' : '';
 
 export const metadata: Metadata = {
-    title: 'Mythical - Discord Bot',
+    title: 'Mythical Bot - Magical Discord Adventure',
     description:
-        'A magical Discord bot to enhance your server with a marvelous realm of Luminals, Cardinals and more!',
+        'Discover Mythical Bot: A unique Discord gaming experience featuring Luminals, Cardinals, and magical adventures. Collect creatures, customize your house, and join our enchanted community!',
+    keywords:
+        'Mythical Bot, Discord Bot, Luminals, Cardinals, Discord Game, RPG Bot, Fantasy Game, Discord Adventure, Magical Creatures',
+    authors: [{ name: 'PhantHive' }],
+    openGraph: {
+        type: 'website',
+        title: 'Mythical Bot - Your Magical Discord Adventure',
+        description:
+            'Embark on a magical journey! Collect Luminals, battle with Cardinals, customize your house, and explore an enchanted Discord realm.',
+        images: [{ url: `${basePath}/favicon.png` }],
+        url: 'https://phanthive.github.io/mythical-website/',
+        siteName: 'Mythical Bot',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        site: '@PhantHive',
+        creator: '@PhantHive',
+        title: 'Mythical Bot - Your Magical Discord Adventure',
+        description:
+            'Join the magical world of Mythical Bot! Collect luminals, battle with Cardinals, and create your own house.',
+        images: [`${basePath}/favicon.png`],
+    },
     icons: {
         icon: [
             {
-                url: `${basePath}/Eggs/mystic-egg.png`,
+                url: `${basePath}/favicon.png`,
                 sizes: '32x32',
                 type: 'image/png',
             },
         ],
         apple: [
             {
-                url: `${basePath}/Eggs/mystic-egg.png`,
+                url: `${basePath}/favicon.png`,
                 sizes: '180x180',
                 type: 'image/png',
             },
         ],
     },
+    applicationName: 'Mythical Bot',
+    metadataBase: new URL('https://phanthive.github.io/mythical-website/'),
+};
+
+const viewport = {
+    themeColor: '#8B5CF6',
 };
 
 interface RootLayoutProps {
@@ -37,9 +64,6 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
     return (
         <html lang="en" className="scroll-smooth">
-            <head>
-                <link rel="icon" href={`${basePath}/Eggs/mystic-egg.png`} type="image/png" />
-            </head>
             <body className={`${inter.className} bg-gray-900 text-white`}>{children}</body>
         </html>
     );
