@@ -2,13 +2,12 @@
     "name": "mythical-website",
     "version": "0.1.0",
     "private": true,
+    "type": "module",
     "scripts": {
         "dev": "next dev --turbopack",
         "build": "next build",
-        "export": "next export",
-        "deploy": "next build && next export",
-        "start": "npx serve@latest out",
-        "lint": "next lint",
+        "start": "next start",
+        "lint": "next lint --fix",
         "format": "prettier --write .",
         "prepare": "husky",
         "type-check": "tsc --noEmit"
@@ -42,8 +41,8 @@
     },
     "lint-staged": {
         "*.{js,jsx,ts,tsx}": [
-            "eslint --fix",
-            "prettier --write"
+            "prettier --write",
+            "eslint --fix"
         ],
         "*.{json,css,md}": [
             "prettier --write"
