@@ -1,0 +1,32 @@
+1:"$Sreact.fragment"
+2:I[5244,[],""]
+3:I[3866,[],""]
+5:I[6213,[],"OutletBoundary"]
+7:I[6213,[],"MetadataBoundary"]
+9:I[6213,[],"ViewportBoundary"]
+b:I[4835,[],""]
+:HL["/_next/static/media/a34f9d1faa5f3315-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/1083dcac1f001d09.css","style"]
+4:T7bd,
+  <h2>1. Data Collection</h2>
+  <p>At Phearion Games, we only store your Discord User ID in our database. This is used solely to link your in-game profile and track your progress within Mythical. No other personal information, such as email addresses, phone numbers, or real names, is collected or stored.</p>
+
+  <p>All other IDs and data stored are purely related to in-game virtual content, such as creatures, inventory, and achievements. These do not directly link to your personal identity outside of the game.</p>
+
+  <h2>2. Bot Permissions and Access</h2>
+  <p>The bot has permissions to view channels, send messages, embed links, and manage interactions like reactions and stickers. However, it does not access private messages, read full message history (only per server/channel), or gather personal data beyond the Discord User ID required for gameplay.</p>
+
+  <h2>3. Data Protection and Compliance</h2>
+  <p>We comply with the General Data Protection Regulation (GDPR) for users in the European Economic Area (EEA) and other relevant jurisdictions. This means that you have the right to access, modify, or request the deletion of your User ID data at any time.</p>
+
+  <p>For users within the United States, we adhere to relevant U.S. privacy laws. The User ID collected is used solely to enhance your gaming experience, and we do not share or sell your data to third parties for commercial purposes.</p>
+
+  <h2>4. Data Retention</h2>
+  <p>Your Discord User ID is stored as long as your account remains active. If you delete your account or request data deletion, all stored data will be permanently removed from our servers, including in-game progress and virtual assets.</p>
+
+  <h2>5. Contact and Data Requests</h2>
+  <p>If you have any concerns or requests regarding your data, you can contact us through our Discord Support Server. We aim to respond to inquiries or data deletion requests within 30 days, in accordance with GDPR and U.S. privacy law requirements.</p>
+0:{"P":null,"b":"EfJzfKIES-aE0LrGS_RLL","p":"","c":["","legal","privacy",""],"i":false,"f":[[["",{"children":["legal",{"children":["privacy",{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/1083dcac1f001d09.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"scroll-smooth","children":["$","body",null,{"className":"__className_d65c78 bg-gray-900 text-white","children":["$","$L2",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[],[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":["legal",["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","segmentPath":["children","legal","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["privacy",["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","segmentPath":["children","legal","children","privacy","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":[["$","div",null,{"className":"scroll-content","children":[["$","h1",null,{"children":"Privacy Policy"}],["$","div",null,{"dangerouslySetInnerHTML":{"__html":"$4"}}],["$","div",null,{"className":"discord-links","children":[["$","p",null,{"children":"Please also review:"}],["$","a",null,{"href":"https://discord.com/terms","target":"_blank","rel":"noopener noreferrer","children":"Discord Terms of Service"}],["$","a",null,{"href":"https://discord.com/privacy","target":"_blank","rel":"noopener noreferrer","children":"Discord Privacy Policy"}]]}]]}],null,["$","$L5",null,{"children":"$L6"}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","frzUwN9VcRnYRpD1t0AeU",{"children":[["$","$L7",null,{"children":"$L8"}],["$","$L9",null,{"children":"$La"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]]}],false]],"m":"$undefined","G":["$b","$undefined"],"s":false,"S":true}
+a:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+8:[["$","meta","0",{"charSet":"utf-8"}],["$","title","1",{"children":"Mythical - Discord Bot"}],["$","meta","2",{"name":"description","content":"A magical world of Luminals and Cardinals"}],["$","link","3",{"rel":"icon","href":"/Eggs/mystic-egg.png","sizes":"32x32","type":"image/png"}],["$","link","4",{"rel":"apple-touch-icon","href":"/Eggs/mystic-egg.png","sizes":"180x180","type":"image/png"}]]
+6:null
