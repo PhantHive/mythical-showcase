@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import { useRouter } from 'next/navigation';
 
 const privacyContent = `
   <h2>1. Data Collection</h2>
@@ -22,8 +25,13 @@ const privacyContent = `
 `;
 
 export default function PrivacyPolicy() {
+    const router = useRouter();
+
     return (
-        <div className="scroll-content">
+        <div className="legal-page scroll-content">
+            <button onClick={() => router.back()} className="go-back-button">
+                Go Back
+            </button>
             <h1>Privacy Policy</h1>
             <div dangerouslySetInnerHTML={{ __html: privacyContent }} />
             <div className="discord-links">

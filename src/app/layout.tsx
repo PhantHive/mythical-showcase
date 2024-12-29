@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import '@/styles/theme.css';
-import '@/styles/LegalComponents/LegalPage.css';
+import '@/styles/legal/legal.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -37,15 +37,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
     return (
         <html lang="en" className="scroll-smooth">
             <head>
-                <link
-                    rel="icon"
-                    href={`${basePath}/eggs/mystic-egg.png`}
-                    type="image/png"
-                />
+                <link rel="icon" href={`${basePath}/Eggs/mystic-egg.png`} type="image/png" />
             </head>
-            <body className={`${inter.className} bg-gray-900 text-white`}>
-                {children}
-            </body>
+            <body className={`${inter.className} bg-gray-900 text-white`}>{children}</body>
         </html>
     );
 }

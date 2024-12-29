@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import { useRouter } from 'next/navigation';
 
 const termsContent = `
   <h2>1. Introduction</h2>
@@ -82,8 +85,13 @@ const termsContent = `
 `;
 
 export default function TermsOfService() {
+    const router = useRouter();
+
     return (
-        <div className="scroll-content">
+        <div className="legal-page scroll-content">
+            <button onClick={() => router.back()} className="go-back-button">
+                Go Back
+            </button>
             <h1>Terms of Service</h1>
             <div dangerouslySetInnerHTML={{ __html: termsContent }} />
             <div className="discord-links">
