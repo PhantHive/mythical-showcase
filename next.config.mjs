@@ -13,20 +13,21 @@ const nextConfig = {
 
   // Webpack configuration
   webpack: (config, { isServer }) => {
-    // Verbose module resolution
+    // Explicit module resolution
     config.resolve.alias['@'] = path.resolve(process.cwd(), 'src');
+    config.resolve.alias['@/components'] = path.resolve(process.cwd(), 'src/components');
 
-    // Log module resolution details
+    // Add .ts and .tsx to resolved extensions
+    config.resolve.extensions.push('.ts', '.tsx');
+
+    // Logging for debugging
     config.resolve.plugins.push({
       apply: (resolver) => {
-        resolver.hooks.resolve.tap('CustomResolver', (resolveContext) => {
-          console.log('Resolving:', resolveContext.request);
+        resolver.hooks.resolve.tap('CustomResolver', (request) => {
+          console.log('Resolving:', request.request);
         });
       }
     });
-
-    // Additional webpack configuration for module resolution
-    config.resolve.extensions.push('.ts', '.tsx');
 
     return config;
   },
@@ -35,11 +36,6 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
-
-  // Logging for module not found errors
-  onBuildError: (error) => {
-    console.error('Build Error:', error);
-  }
 };
 
 export default nextConfig;
