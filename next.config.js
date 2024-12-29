@@ -2,8 +2,8 @@
 const nextConfig = {
     // GitHub Pages configuration
     output: 'export',
-    basePath: process.env.GITHUB_ACTIONS ? '/mythical-website' : '',
-    assetPrefix: process.env.GITHUB_ACTIONS ? '/mythical-website/' : '',
+    basePath: process.env.GITHUB_ACTIONS ? '/mythical-showcase' : '',
+    assetPrefix: process.env.GITHUB_ACTIONS ? '/mythical-showcase/' : '',
 
     // Images configuration
     images: {
