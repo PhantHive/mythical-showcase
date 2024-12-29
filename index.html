@@ -1,59 +1,100 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/mystic-egg.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MYTHICAL BOT</title>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/png" href="/Eggs/mystic-egg.png" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap"
+            rel="stylesheet"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#8B5CF6" />
+        <title>Mythical Bot - Magical Discord Adventure</title>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CXJWKW5N4C"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        <!-- SEO Metadata -->
+        <meta
+            name="description"
+            content="Discover Mythical Bot: A unique Discord gaming experience featuring Luminals, Cardinals, and magical adventures. Collect creatures, customize your house, and join our enchanted community!"
+        />
+        <meta
+            name="keywords"
+            content="Mythical Bot, Discord Bot, Luminals, Cardinals, Discord Game, RPG Bot, Fantasy Game, Discord Adventure, Magical Creatures"
+        />
+        <meta name="author" content="PhantHive" />
 
-      gtag('config', 'G-CXJWKW5N4C');
-    </script>
+        <!-- Open Graph -->
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Mythical Bot - Your Magical Discord Adventure" />
+        <meta
+            property="og:description"
+            content="Embark on a magical journey! Collect Luminals, battle with Cardinals, customize your house, and explore an enchanted Discord realm."
+        />
+        <meta property="og:image" content="/Eggs/mystic-egg.png" />
+        <meta property="og:url" content="https://phanthive.github.io/mythical-website/" />
+        <meta property="og:site_name" content="Mythical Bot" />
 
-    <!-- Cool Metadata -->
-    <meta name="description" content="MYTHICAL BOT - The ultimate bot for your Discord server. Enhance your server with powerful features and seamless integration.">
-    <meta name="keywords" content="MYTHICAL BOT, Discord, Bot, Features, Integration, Server">
-    <meta name="author" content="PhantHive">
-    <meta property="og:title" content="MYTHICAL BOT">
-    <meta property="og:description" content="The ultimate bot for your Discord server. Enhance your server with powerful features and seamless integration.">
-    <meta property="og:image" content="/mystic-egg.png">
-    <meta property="og:url" content="https://yourwebsite.com">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="MYTHICAL BOT">
-    <meta name="twitter:description" content="The ultimate bot for your Discord server. Enhance your server with powerful features and seamless integration.">
-    <meta name="twitter:image" content="/mystic-egg.png">
-  </head>
-  <body>
-    <div id="root"></div>
-    <div id="cookie-consent-banner" class="cookie-consent-banner" style="display: none;">
-      <img src="/mystic-egg.png" alt="Egg Icon" class="cookie-icon">
-      <p class="cookie-text">We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.</p>
-      <button id="accept-cookies" class="accept-cookies-button">Accept</button>
-      <div class="music-controls">
-        <span id="song-title">Phearion's Warriors</span>
-        <button id="mute-button" class="mute-button">🔇</button>
-      </div>
-    </div>
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@PhantHive" />
+        <meta name="twitter:creator" content="@PhantHive" />
+        <meta name="twitter:title" content="Mythical Bot - Your Magical Discord Adventure" />
+        <meta
+            name="twitter:description"
+            content="Join the magical world of Mythical Bot! Collect luminals, battle with Cardinals, and create your own house."
+        />
+        <meta name="twitter:image" content="/Eggs/mystic-egg.png" />
 
-    <audio id="background-music" loop>
-      <source src="/background-music.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-    <script type="module" src="/src/main.tsx"></script>
-    <svg width="0" height="0" style="position: absolute;">
-    <filter id="roughpaper" x="0%" y="0%" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.04" result="noise" numOctaves="5" />
-      <feDiffuseLighting in="noise" lighting-color="#fff" surfaceScale="2">
-        <feDistantLight azimuth="45" elevation="60" />
-      </feDiffuseLighting>
-    </filter>
-  </svg>
-  </body>
+        <!-- App Info -->
+        <meta name="application-name" content="Mythical Bot" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="apple-mobile-web-app-title" content="Mythical Bot" />
+        <link rel="apple-touch-icon" href="/Eggs/mystic-egg.png" />
+
+        <!-- Preload Critical Assets -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="preload"
+            as="font"
+            href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap"
+            crossorigin
+        />
+
+        <!-- Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CXJWKW5N4C"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', 'G-CXJWKW5N4C');
+        </script>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <!-- Paper Texture Filter -->
+        <svg width="0" height="0" style="position: absolute">
+            <filter id="roughpaper" x="0%" y="0%" width="100%" height="100%">
+                <feTurbulence
+                    type="fractalNoise"
+                    baseFrequency="0.04"
+                    result="noise"
+                    numOctaves="5"
+                />
+                <feDiffuseLighting in="noise" lighting-color="#fff" surfaceScale="2">
+                    <feDistantLight azimuth="45" elevation="60" />
+                </feDiffuseLighting>
+            </filter>
+        </svg>
+
+        <!-- Noscript Message -->
+        <noscript>
+            <div style="padding: 20px; text-align: center; background: #8b5cf6; color: white">
+                Please enable JavaScript to experience the magical world of Mythical Bot.
+            </div>
+        </noscript>
+    </body>
 </html>

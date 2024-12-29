@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+:root {
+    --color-primary: #8b5cf6;
+    --color-primary-dark: #7c3aed;
+    --color-secondary: #ec4899;
+    --color-background: #1f1d2e;
+    --color-surface: #2d2b3a;
+    --color-text: #e2e8f0;
+    --color-accent: #f59e0b;
+}
+
+.medieval-gradient {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.medieval-button {
+    position: relative;
+    padding: 0.75rem 2rem;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    border: 2px solid var(--color-accent);
+    border-radius: 0.5rem;
+    color: var(--color-text);
+    font-family: 'MedievalSharp', cursive;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.medieval-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px -1px rgba(0, 0, 0, 0.2);
+}
+
+.medieval-card {
+    background: var(--color-surface);
+    border: 2px solid var(--color-accent);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.3);
+}
+
+.medieval-title {
+    font-family: 'MedievalSharp', cursive;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.egg-card {
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.egg-card.fairy-selected {
+    box-shadow: 0 0 15px 5px rgba(15, 228, 250, 0.3);
+    transform: scale(1.02);
+}
+
+.egg-card.enchanted-selected {
+    box-shadow: 0 0 15px 5px rgba(139, 92, 246, 0.3);
+    transform: scale(1.02);
+}
+
+.egg-card.mystic-selected {
+    box-shadow: 0 0 15px 5px rgba(234, 179, 8, 0.3);
+    transform: scale(1.02);
+}
+
+.glow-effect {
+    position: relative;
+    transition: all 0.3s ease;
+}
+.egg-card {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.egg-card::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.egg-card.fairy-selected::before,
+.glow-effect-fairy::before {
+    background: linear-gradient(45deg, transparent, rgba(236, 72, 153, 0.3), transparent);
+    opacity: 1;
+}
+
+.egg-card.enchanted-selected::before,
+.glow-effect-enchanted::before {
+    background: linear-gradient(45deg, transparent, rgba(139, 92, 246, 0.3), transparent);
+    opacity: 1;
+}
+
+.egg-card.mystic-selected::before,
+.glow-effect-mystic::before {
+    background: linear-gradient(45deg, transparent, rgba(234, 179, 8, 0.3), transparent);
+    opacity: 1;
+}
+
+.glow-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.glow-effect::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.glow-effect:hover::before,
+.glow-effect-fairy::before,
+.glow-effect-enchanted::before,
+.glow-effect-mystic::before {
+    opacity: 0.6;
+}
+.egg-card {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.egg-card::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.egg-card.fairy-selected::before {
+    background: linear-gradient(45deg, transparent, rgba(236, 72, 153, 0.3), transparent);
+    opacity: 1;
+}
+
+.egg-card.enchanted-selected::before {
+    background: linear-gradient(45deg, transparent, rgba(139, 92, 246, 0.3), transparent);
+    opacity: 1;
+}
+
+.egg-card.mystic-selected::before {
+    background: linear-gradient(45deg, transparent, rgba(234, 179, 8, 0.3), transparent);
+    opacity: 1;
+}
+
+.glow-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.glow-effect::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.glow-effect.fairy-selected::before,
+.glow-effect.enchanted-selected::before,
+.glow-effect.mystic-selected::before,
+.glow-effect:hover::before {
+    opacity: 0.6;
+}
+.egg-card::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    background: linear-gradient(45deg, transparent, rgba(139, 92, 246, 0.3), transparent);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.egg-card.fairy-selected::before,
+.egg-card.enchanted-selected::before,
+.egg-card.mystic-selected::before {
+    background: linear-gradient(45deg, transparent, rgba(236, 72, 153, 0.3), transparent);
+    opacity: 1;
+}
+
+.egg-card.fairy-selected::before {
+    background: linear-gradient(45deg, transparent, rgba(236, 72, 153, 0.3), transparent);
+}
+
+.egg-card.enchanted-selected::before {
+    background: linear-gradient(45deg, transparent, rgba(139, 92, 246, 0.3), transparent);
+}
+
+.egg-card.mystic-selected::before {
+    background: linear-gradient(45deg, transparent, rgba(234, 179, 8, 0.3), transparent);
+}
+
+.glow-effect::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.glow-effect.fairy-selected::before,
+.glow-effect.enchanted-selected::before,
+.glow-effect.mystic-selected::before,
+.glow-effect:hover::before {
+    opacity: 0.6;
+}
+.egg-card::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    background: linear-gradient(45deg, transparent, rgba(139, 92, 246, 0.3), transparent);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.egg-card.fairy-selected {
+    background: linear-gradient(45deg, transparent, rgba(236, 72, 153, 0.3), transparent);
+    opacity: 1;
+}
+
+.egg-card.enchanted-selected {
+    background: linear-gradient(45deg, transparent, rgba(139, 92, 246, 0.3), transparent);
+    opacity: 1;
+}
+
+.egg-card.mystic-selected {
+    background: linear-gradient(45deg, transparent, rgba(234, 179, 8, 0.3), transparent);
+    opacity: 1;
+}
+
+.glow-effect {
+    position: relative;
+}
+
+.glow-effect::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.glow-effect:hover::before,
+.glow-effect.fairy-selected::before,
+.glow-effect.fairy-selected:hover::before,
+.glow-effect.enchanted-selected::before,
+.glow-effect.enchanted-selected:hover::before,
+.glow-effect.mystic-selected::before,
+.glow-effect.mystic-selected:hover::before {
+    opacity: 0.6;
+}

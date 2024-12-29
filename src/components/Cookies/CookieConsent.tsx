@@ -1,57 +1,82 @@
-import { useEffect, useState } from 'react';
-import '../../styles/Cookies/CookieConsent.css';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 const CookieConsent = () => {
-  const [showBanner, setShowBanner] = useState(false);
+    const [show, setShow] = useState(false);
 
-  useEffect(() => {
-    const cookiesAccepted = document.cookie.split(';').some((item) => item.trim().startsWith('cookies_accepted='));
-    setShowBanner(!cookiesAccepted);
-  }, []);
+    useEffect(() => {
+        const consent = localStorage.getItem('cookieConsent');
+        if (!consent) {
+            setShow(true);
+        }
+    }, []);
 
-  const handleAcceptCookies = () => {
-    document.cookie = "cookies_accepted=true; path=/; max-age=" + 60 * 60 * 24 * 365;
-    setShowBanner(false);
-
-    const music = document.getElementById('background-music') as HTMLAudioElement;
-    if (music) {
-      music.volume = 0.2; // Set initial volume to low
-      music.play().catch(error => {
-        console.error("Music playback failed:", error);
-      });
-    }
-  };
-
-  useEffect(() => {
-  const music = document.getElementById('background-music') as HTMLAudioElement;
-  if (music) {
-    const playMusic = () => {
-      music.volume = 0.2; // Set initial volume to low
-      music.play().catch(error => console.log("Audio play failed:", error));
+    const handleAccept = () => {
+        localStorage.setItem('cookieConsent', 'accepted');
+        setShow(false);
     };
 
-    if (music.readyState >= 2) { // HAVE_CURRENT_DATA
-      playMusic();
-    } else {
-      music.addEventListener('canplaythrough', playMusic, { once: true });
-    }
-  }
-}, []);
+    return (
+        <AnimatePresence>
+            {show && (
+                <>
+                    {/* Overlay */}
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm"
+                    />
 
-  return (
-    <>
-      {showBanner && (
-        <div id="cookie-consent-banner" className="cookie-consent-banner">
-          <img src="/mystic-egg.png" alt="Egg Icon" className="cookie-icon" />
-          <p>We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.</p>
-          <button id="accept-cookies" className="accept-cookies-button" onClick={handleAcceptCookies}>
-            Accept
-          </button>
-        </div>
-      )}
-      <audio id="background-music" src="/Phearion's warriors.mp3" loop></audio>
-    </>
-  );
+                    {/* Cookie Consent Modal */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
+                        className="fixed left-1/2 top-1/2 z-50 w-full max-w-lg -translate-x-1/2 -translate-y-1/2"
+                    >
+                        <div className="rounded-xl border border-purple-500/20 bg-gradient-to-b from-gray-900 to-gray-800 p-6 shadow-xl">
+                            <div className="flex items-start gap-6">
+                                {/* Cardinal Image */}
+                                <div className="relative h-32 w-32 flex-shrink-0">
+                                    <Image
+                                        src="/Cardinals/heal-cardinal.png"
+                                        alt="Cardinal Assistant"
+                                        fill
+                                        className="object-contain"
+                                    />
+                                </div>
+
+                                {/* Content */}
+                                <div className="flex-1">
+                                    <h3 className="mb-2 text-xl font-bold text-white">
+                                        Welcome to Mythical!
+                                    </h3>
+                                    <p className="mb-4 text-gray-300">
+                                        Our Cardinals use cookies to enhance your magical
+                                        experience. By continuing to explore our realm, you agree to
+                                        our use of cookies. 🍪
+                                    </p>
+
+                                    {/* Buttons */}
+                                    <div className="flex justify-end gap-4">
+                                        <button
+                                            onClick={handleAccept}
+                                            className="relative overflow-hidden rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-2
+                        font-medium text-white shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
+                                        >
+                                            Accept & Continue
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
+                </>
+            )}
+        </AnimatePresence>
+    );
 };
 
 export default CookieConsent;
