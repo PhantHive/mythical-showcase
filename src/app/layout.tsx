@@ -6,22 +6,23 @@ import '@/styles/legal/legal.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+const basePath = process.env.GITHUB_PAGES ? '/' : '';
 
 export const metadata: Metadata = {
     title: 'Mythical - Discord Bot',
-    description: 'A magical world of Luminals and Cardinals',
+    description:
+        'A magical Discord bot to enhance your server with a marvelous realm of Luminals, Cardinals and more!',
     icons: {
         icon: [
             {
-                url: `${basePath}/eggs/mystic-egg.png`,
+                url: `${basePath}/Eggs/mystic-egg.png`,
                 sizes: '32x32',
                 type: 'image/png',
             },
         ],
         apple: [
             {
-                url: `${basePath}/eggs/mystic-egg.png`,
+                url: `${basePath}/Eggs/mystic-egg.png`,
                 sizes: '180x180',
                 type: 'image/png',
             },
