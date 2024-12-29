@@ -13,12 +13,14 @@ const nextConfig = {
   reactStrictMode: true,
 
   // Webpack configuration
-  webpack: (config) => {
-    config.resolve.alias['@'] = path.resolve('src');
+  webpack: (config, { isServer }) => {
+    // Explicitly set up module resolution
+    config.resolve.alias['@'] = path.resolve(__dirname, 'src');
+
     return config;
   },
 
-  // Optionally, configure images export if you're using next/image
+  // Configure static images
   images: {
     unoptimized: true
   }
