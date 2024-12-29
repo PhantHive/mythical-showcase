@@ -1,3 +1,5 @@
+import path from 'path';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   basePath: process.env.NODE_ENV === 'production' ? '/mythical-showcase' : '',
@@ -11,8 +13,7 @@ const nextConfig = {
 
   // Webpack configuration
   webpack: (config) => {
-    const path = require('path');
-    config.resolve.alias['@'] = path.resolve(__dirname, 'src');
+    config.resolve.alias['@'] = path.resolve('src');
     return config;
   },
 };
