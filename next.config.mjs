@@ -1,7 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // For GitHub Pages deployment
-  output: 'export',
   basePath: process.env.NODE_ENV === 'production' ? '/mythical-showcase' : '',
 
   // Image optimization options
