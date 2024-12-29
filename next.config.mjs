@@ -1,36 +1,28 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Ensure output is configured for static export
   output: 'export',
 
-  // Add basePath for GitHub Pages deployment
-  basePath: process.env.NODE_ENV === 'production' ? '/mythical-showcase' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/mythical-showcase/' : '',
+  // GitHub Pages configuration
+  basePath: process.env.GITHUB_ACTIONS ? '/mythical-showcase' : '',
+  assetPrefix: process.env.GITHUB_ACTIONS ? '/mythical-showcase/' : '',
 
-  // Disable server-side rendering for static export
-  reactStrictMode: true,
-
-  // Configure static export
-  trailingSlash: true,
-
-  // Webpack configuration
-  webpack: (config, { isServer }) => {
-    // Explicit module resolution
-    config.resolve.alias['@'] = path.resolve(__dirname, 'src');
-    config.resolve.alias['@/components'] = path.resolve(__dirname, 'src/components');
-
-    return config;
+  // Images configuration
+  images: {
+    unoptimized: true,
+    loader: 'akamai',
+    path: '',
   },
 
-  // Configure static images
-  images: {
-    unoptimized: true
+  // Static exports settings
+  trailingSlash: true,
+
+  // Fix for static assets loading
+  distDir: 'dist',
+
+  // Webpack configuration to handle static assets
+  webpack: (config) => {
+    config.resolve.fallback = { fs: false, path: false };
+    return config;
   },
 };
 

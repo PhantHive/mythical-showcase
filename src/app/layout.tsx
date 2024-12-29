@@ -6,35 +6,46 @@ import '@/styles/LegalComponents/LegalPage.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 export const metadata: Metadata = {
     title: 'Mythical - Discord Bot',
     description: 'A magical world of Luminals and Cardinals',
     icons: {
         icon: [
-          {
-            url: '/Eggs/mystic-egg.png',
-            sizes: '32x32',
-            type: 'image/png',
-          },
+            {
+                url: `${basePath}/eggs/mystic-egg.png`,
+                sizes: '32x32',
+                type: 'image/png',
+            },
         ],
         apple: [
-          {
-            url: '/Eggs/mystic-egg.png',
-            sizes: '180x180',
-            type: 'image/png',
-          },
+            {
+                url: `${basePath}/eggs/mystic-egg.png`,
+                sizes: '180x180',
+                type: 'image/png',
+            },
         ],
     },
 };
 
-export default function RootLayout({
-    children,
-}: Readonly<{
+interface RootLayoutProps {
     children: React.ReactNode;
-}>) {
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
     return (
         <html lang="en" className="scroll-smooth">
-            <body className={`${inter.className} bg-gray-900 text-white`}>{children}</body>
+            <head>
+                <link
+                    rel="icon"
+                    href={`${basePath}/eggs/mystic-egg.png`}
+                    type="image/png"
+                />
+            </head>
+            <body className={`${inter.className} bg-gray-900 text-white`}>
+                {children}
+            </body>
         </html>
     );
 }
