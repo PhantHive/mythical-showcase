@@ -2,7 +2,7 @@
 const nextConfig = {
   // For GitHub Pages deployment
   output: 'export',
-  basePath: process.env.NODE_ENV === 'production' ? '/mythical-website' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/mythical-showcase' : '',
 
   // Image optimization options
   images: {
