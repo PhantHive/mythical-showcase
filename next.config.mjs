@@ -1,26 +1,30 @@
 import path from 'path';
-import { fileURLToPath } from 'url';
-
-// Get the directory name in ES modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Ensure output is configured for static export
   output: 'export',
 
-  // Performance optimizations
-  compress: true,
-  poweredByHeader: false,
-
-  // Build optimizations
+  // Disable server-side rendering for static export
   reactStrictMode: true,
 
+  // Configure static export
+  trailingSlash: true,
+
   // Webpack configuration
-  webpack: (config) => {
-    // Explicitly set up module resolution
-    config.resolve.alias['@'] = path.resolve(__dirname, 'src');
+  webpack: (config, { isServer }) => {
+    // Explicit module resolution
+    config.resolve.alias['@'] = path.resolve(process.cwd(), 'src');
+
+    // Ensure all dynamic imports are handled for static export
+    if (!isServer) {
+      config.optimization.splitChunks = {
+        chunks: 'all',
+        cacheGroups: {
+          defaultVendors: false,
+        },
+      };
+    }
 
     return config;
   },
@@ -28,7 +32,17 @@ const nextConfig = {
   // Configure static images
   images: {
     unoptimized: true
-  }
+  },
+
+  // Optionally, configure export paths if needed
+  exportPathMap: async function (
+    defaultPathMap,
+    { dev, dir, outDir, distDir, buildId }
+  ) {
+    return {
+      ...defaultPathMap,
+    };
+  },
 };
 
 export default nextConfig;
