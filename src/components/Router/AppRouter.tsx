@@ -4,13 +4,13 @@ import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import GameLayout from '../GameLayout';
 import GameHero from '../GameHero';
-import Cardinals from '../features/Cardinals';
-import Eggs from '../features/Eggs';
+import Cardinals from '@/components/Features/Cardinals';
+import Eggs from '@/components/Features/Eggs';
 import Footer from '../Footer';
 import PrivacyPolicy from '@/app/legal/privacy/page';
 import TermsOfService from '@/app/legal/terms/page';
-import WinterGuide from '@/components/special/WinterGuide';
-import House from '@/components/features/House';
+import WinterGuide from '@/components/Special/WinterGuide';
+import House from '@/components/Features/House';
 
 const AppRouter = () => {
     const [currentPath, setCurrentPath] = useState('/');

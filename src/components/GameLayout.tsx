@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import MusicPlayer from '@/components/phearionMusic/MusicPlayer';
+import MusicPlayer from '@/components/PhearionMusic/MusicPlayer';
 import Image from 'next/image';
 
 interface ParticleProps {
