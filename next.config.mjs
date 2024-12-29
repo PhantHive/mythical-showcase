@@ -12,9 +12,12 @@ const nextConfig = {
   trailingSlash: true,
 
   // Webpack configuration
-  webpack: (config) => {
-    // Explicit module resolution for App Router
+  webpack: (config, { isServer }) => {
+    // Explicit module resolution
     config.resolve.alias['@'] = path.resolve(process.cwd(), 'src');
+
+    // Additional webpack configuration for module resolution
+    config.resolve.extensions.push('.ts', '.tsx');
 
     return config;
   },
@@ -23,6 +26,11 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
+
+  // Ensure all pages are statically generated
+  async generateStaticParams() {
+    return [];
+  }
 };
 
 export default nextConfig;
