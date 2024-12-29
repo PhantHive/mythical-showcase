@@ -42,8 +42,6 @@ export default [
         plugins: {
             js,
         },
-        rules: {
-            // Add common rules here
-        },
+        rules: {},
     },
 ];
