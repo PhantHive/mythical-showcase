@@ -1,7 +1,7 @@
 'use client';
 
-import AppRouter from '@/components/router/AppRouter';
 import CookieConsent from '@/components/cookies/CookieConsent';
+import AppRouter from '@/components/router/AppRouter';
 
 export default function RootPage() {
     return (
