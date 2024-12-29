@@ -13,8 +13,17 @@ const nextConfig = {
 
   // Webpack configuration
   webpack: (config, { isServer }) => {
-    // Explicit module resolution
+    // Verbose module resolution
     config.resolve.alias['@'] = path.resolve(process.cwd(), 'src');
+
+    // Log module resolution details
+    config.resolve.plugins.push({
+      apply: (resolver) => {
+        resolver.hooks.resolve.tap('CustomResolver', (resolveContext) => {
+          console.log('Resolving:', resolveContext.request);
+        });
+      }
+    });
 
     // Additional webpack configuration for module resolution
     config.resolve.extensions.push('.ts', '.tsx');
@@ -27,9 +36,9 @@ const nextConfig = {
     unoptimized: true
   },
 
-  // Ensure all pages are statically generated
-  async generateStaticParams() {
-    return [];
+  // Logging for module not found errors
+  onBuildError: (error) => {
+    console.error('Build Error:', error);
   }
 };
 
