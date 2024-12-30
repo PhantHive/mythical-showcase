@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import '@/styles/theme.css';
@@ -36,14 +36,14 @@ export const metadata: Metadata = {
     icons: {
         icon: [
             {
-                url: `${basePath}/Eggs/mystic-egg.png`,
+                url: `${basePath}/favicon.png`,
                 sizes: '32x32',
                 type: 'image/png',
             },
         ],
         apple: [
             {
-                url: `${basePath}/Eggs/mystic-egg.png`,
+                url: `${basePath}/favicon.png`,
                 sizes: '180x180',
                 type: 'image/png',
             },
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     metadataBase: new URL('https://phanthive.github.io/mythical-website/'),
 };
 
-const viewport = {
+export const viewport: Viewport = {
     themeColor: '#8B5CF6',
 };
 
