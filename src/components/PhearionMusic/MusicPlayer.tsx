@@ -10,7 +10,7 @@ interface Song {
 
 const songs: Song[] = [
     { title: 'Lumières de Phearion', path: '/songs/Lumières de Phearion.mp3' },
-    { title: "Phearin's warriors", path: "/songs/Phearion's warriors.mp3" },
+    { title: "Phearion's warriors", path: "/songs/Phearion's warriors.mp3" },
 ];
 
 const chibiImages = [
@@ -42,7 +42,7 @@ const MusicPlayer: React.FC = () => {
             const audioElement = new Audio(currentSong.path);
             audioElement.preload = 'auto';
             audioRef.current = audioElement;
-            setCurrentSongIndex(1);
+            setCurrentSongIndex(0);
 
             audioRef.current.addEventListener('ended', handleSongEnd);
         } else {
