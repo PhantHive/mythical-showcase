@@ -24,7 +24,8 @@ export const metadata: Metadata = {
             'The ultimate bot for your Discord server. Enhance your server with powerful features and seamless integration.',
         images: [
             {
-                url: `https://mythical.phearion.fr/Eggs/mystic-egg.png`,
+                secureUrl: `https://mythical.phearion.fr/favicon.png`,
+                url: `https://mythical.phearion.fr/favicon.png`,
                 width: 256,
                 height: 256,
                 alt: 'Mythical Bot Logo',
@@ -42,7 +43,8 @@ export const metadata: Metadata = {
             'The ultimate bot for your Discord server. Enhance your server with powerful features and seamless integration.',
         images: [
             {
-                url: `https://mythical.phearion.fr/Eggs/mystic-egg.png`,
+                secureUrl: `https://mythical.phearion.fr/favicon.png`,
+                url: `https://mythical.phearion.fr/favicon.png`,
                 width: 256,
                 height: 256,
                 alt: 'Mythical Bot Logo',
