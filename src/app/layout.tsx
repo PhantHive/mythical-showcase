@@ -24,9 +24,9 @@ export const metadata: Metadata = {
             'The ultimate bot for your Discord server. Enhance your server with powerful features and seamless integration.',
         images: [
             {
-                url: `${basePath}Eggs/mystic-egg.png`,
-                width: 1200,
-                height: 1200,
+                url: `${basePath}/Eggs/mystic-egg.png`,
+                width: 256,
+                height: 256,
                 alt: 'Mythical Bot Logo',
             },
         ],
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
             'The ultimate bot for your Discord server. Enhance your server with powerful features and seamless integration.',
         images: [
             {
-                url: `${basePath}Eggs/mystic-egg.png`,
-                width: 1200,
-                height: 1200,
+                url: `${basePath}/Eggs/mystic-egg.png`,
+                width: 256,
+                height: 256,
                 alt: 'Mythical Bot Logo',
             },
         ],
