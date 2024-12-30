@@ -6,7 +6,7 @@ import '@/styles/legal/legal.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
-const basePath = process.env.GITHUB_PAGES ? '/' : '';
+const basePath = process.env.GITHUB_PAGES ? '/mythical.phearion.fr' : '';
 
 export const metadata: Metadata = {
     title: 'Mythical Bot - Magical Discord Adventure',
