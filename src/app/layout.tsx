@@ -21,7 +21,7 @@ export const metadata: Metadata = {
         type: 'website',
         title: 'MYTHICAL BOT',
         description:
-            'The ultimate bot for your Discord server. Enhance your server with powerful features and seamless integration.',
+            'Visually stunning Discord bot featuring magical Luminals and Cardinals. Customize your realm, collect unique luminals, customize your house and more! One single command bot with a dedicated menu.',
         images: [
             {
                 secureUrl: `https://mythical.phearion.fr/favicon.png`,
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         creator: '@PhantHive',
         title: 'MYTHICAL BOT',
         description:
-            'The ultimate bot for your Discord server. Enhance your server with powerful features and seamless integration.',
+            'Visually stunning Discord bot featuring magical Luminals and Cardinals. Customize your realm, collect unique luminals, customize your house and more! One single command bot with a dedicated menu.',
         images: [
             {
                 secureUrl: `https://mythical.phearion.fr/favicon.png`,
