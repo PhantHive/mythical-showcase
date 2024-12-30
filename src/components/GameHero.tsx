@@ -230,26 +230,48 @@ const GameHero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     className="mt-12 text-center"
                 >
-                    <a
-                        href="https://phearion.fr"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group relative inline-flex items-center gap-3 overflow-hidden rounded-xl bg-gradient-to-r from-[#1a1b4b] to-[#0B1729] px-8 py-4 text-white shadow-lg transition-all hover:scale-105"
-                    >
-                        <FaGlobe className="text-xl text-[#FFD700]" />
-                        <span className="text-lg font-semibold">Visit Phearion.fr</span>
-                        <motion.div
-                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
-                            animate={{
-                                x: ['-200%', '200%'],
-                            }}
-                            transition={{
-                                duration: 3,
-                                repeat: Infinity,
-                                ease: 'linear',
-                            }}
-                        />
-                    </a>
+                    <div className="flex flex-col items-center gap-4">
+                        <a
+                            href="https://phearion.fr"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group relative inline-flex items-center gap-3 overflow-hidden rounded-xl bg-gradient-to-r from-[#1a1b4b] to-[#0B1729] px-8 py-4 text-white shadow-lg transition-all hover:scale-105"
+                        >
+                            <FaGlobe className="text-xl text-[#FFD700]" />
+                            <span className="text-lg font-semibold">Visit Phearion.fr</span>
+                            <motion.div
+                                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+                                animate={{
+                                    x: ['-200%', '200%'],
+                                }}
+                                transition={{
+                                    duration: 3,
+                                    repeat: Infinity,
+                                    ease: 'linear',
+                                }}
+                            />
+                        </a>
+                        <a
+                            href="https://top.gg/bot/1250496056521654393"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group relative inline-flex items-center gap-3 overflow-hidden rounded-xl bg-blue-600 bg-gradient-to-r from-[#6E1E06] to-[#4D1A05] px-8 py-4 text-white shadow-lg transition-all hover:scale-105"
+                        >
+                            <FaDiscord className="text-xl text-[#7289DA]" />
+                            <span className="text-lg font-semibold">Visit our TopGG page</span>
+                            <motion.div
+                                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+                                animate={{
+                                    x: ['-200%', '200%'],
+                                }}
+                                transition={{
+                                    duration: 3,
+                                    repeat: Infinity,
+                                    ease: 'linear',
+                                }}
+                            />
+                        </a>
+                    </div>
                 </motion.div>
             </div>
         </div>
