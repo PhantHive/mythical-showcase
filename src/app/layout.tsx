@@ -6,6 +6,8 @@ import '@/styles/legal/legal.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
+const basePath = process.env.GITHUB_PAGES ? new URL('https://mythical.phearion.fr/') : '';
+
 export const metadata: Metadata = {
     title: 'Mythical Bot - Magical Discord Adventure',
     description:
@@ -18,7 +20,7 @@ export const metadata: Metadata = {
         title: 'Mythical Bot - Your Magical Discord Adventure',
         description:
             'Embark on a magical journey! Collect Luminals, battle with Cardinals, customize your house, and explore an enchanted realm just within Discord!',
-        images: [{ url: `/favicon.png` }],
+        images: [{ url: `${basePath}/favicon.png` }],
         url: 'https://phanthive.github.io/mythical-website/',
         siteName: 'Mythical Bot',
     },
@@ -29,26 +31,26 @@ export const metadata: Metadata = {
         title: 'Mythical Bot - Your Magical Discord Adventure',
         description:
             'Join the magical world of Mythical Bot! Collect luminals, battle with Cardinals, and create your own house.',
-        images: [{ url: `/favicon.png` }],
+        images: [{ url: `${basePath}/favicon.png` }],
     },
     icons: {
         icon: [
             {
-                url: `/favicon.png`,
+                url: `${basePath}/favicon.png`,
                 sizes: '32x32',
                 type: 'image/png',
             },
         ],
         apple: [
             {
-                url: `/favicon.png`,
+                url: `${basePath}/favicon.png`,
                 sizes: '180x180',
                 type: 'image/png',
             },
         ],
     },
     applicationName: 'Mythical Bot',
-    metadataBase: new URL('https://phanthive.github.io/mythical-website/'),
+    metadataBase: new URL('https://mythical.phearion.fr/'),
 };
 
 export const viewport: Viewport = {
