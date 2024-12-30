@@ -6,7 +6,9 @@ import '@/styles/legal/legal.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
-const basePath = process.env.GITHUB_PAGES ? new URL('https://mythical.phearion.fr/') : '';
+const basePath = process.env.GITHUB_PAGES
+    ? 'https://mythical.phearion.fr/'
+    : 'http://localhost:3000/';
 
 export const metadata: Metadata = {
     title: 'Mythical Bot - Magical Discord Adventure',
@@ -20,7 +22,14 @@ export const metadata: Metadata = {
         title: 'MYTHICAL BOT',
         description:
             'The ultimate bot for your Discord server. Enhance your server with powerful features and seamless integration.',
-        images: [{ url: `${basePath}/Eggs/mystic-egg.png` }],
+        images: [
+            {
+                url: `${basePath}Eggs/mystic-egg.png`,
+                width: 1200,
+                height: 1200,
+                alt: 'Mythical Bot Logo',
+            },
+        ],
         url: 'https://mythical.phearion.fr/',
         siteName: 'Mythical Bot',
     },
@@ -31,19 +40,26 @@ export const metadata: Metadata = {
         title: 'MYTHICAL BOT',
         description:
             'The ultimate bot for your Discord server. Enhance your server with powerful features and seamless integration.',
-        images: [{ url: `${basePath}/Eggs/mystic-egg.png` }],
+        images: [
+            {
+                url: `${basePath}Eggs/mystic-egg.png`,
+                width: 1200,
+                height: 1200,
+                alt: 'Mythical Bot Logo',
+            },
+        ],
     },
     icons: {
         icon: [
             {
-                url: `${basePath}/favicon.png`,
+                url: `${basePath}favicon.png`,
                 sizes: '32x32',
                 type: 'image/png',
             },
         ],
         apple: [
             {
-                url: `${basePath}/favicon.png`,
+                url: `${basePath}favicon.png`,
                 sizes: '180x180',
                 type: 'image/png',
             },
