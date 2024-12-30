@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
+import { Play, Pause, Volume2, VolumeX, SkipForward, SkipBack } from 'lucide-react';
 import Image from 'next/image';
 
 interface Song {
@@ -10,7 +10,7 @@ interface Song {
 
 const songs: Song[] = [
     { title: 'Lumières de Phearion', path: '/songs/Lumières de Phearion.mp3' },
-    { title: "Phearin's warriors", path: "/songs/Phearin's warriors.mp3" },
+    { title: "Phearin's warriors", path: "/songs/Phearion's warriors.mp3" },
 ];
 
 const chibiImages = [
@@ -20,54 +20,146 @@ const chibiImages = [
 ];
 
 const MusicPlayer: React.FC = () => {
+    // State management
+    const [currentSongIndex, setCurrentSongIndex] = useState(0);
     const [isPlaying, setIsPlaying] = useState(false);
-    const [currentSong, setCurrentSong] = useState(0);
     const [isMuted, setIsMuted] = useState(false);
     const [hasInteracted, setHasInteracted] = useState(false);
     const [showPrompt, setShowPrompt] = useState(true);
+
     const audioRef = useRef<HTMLAudioElement | null>(null);
-    const [randomChibi] = useState(
-        () => chibiImages[Math.floor(Math.random() * chibiImages.length)]
+    const playPromiseRef = useRef<Promise<void> | null>(null);
+
+    // Memoized selections
+    const currentSong = useMemo(() => songs[currentSongIndex], [currentSongIndex]);
+    const randomChibi = useMemo(
+        () => chibiImages[Math.floor(Math.random() * chibiImages.length)],
+        []
     );
 
-    useEffect(() => {
-        const audio = new Audio(songs[currentSong].path);
-        audio.loop = true;
-        audioRef.current = audio;
+    const initializeAudio = useCallback(() => {
+        if (!audioRef.current) {
+            const audioElement = new Audio(currentSong.path);
+            audioElement.preload = 'auto';
+            audioRef.current = audioElement;
+            setCurrentSongIndex(1);
 
-        return () => {
-            audio.pause();
-            audio.src = '';
-        };
-    }, [currentSong]);
-
-    useEffect(() => {
-        if (audioRef.current) {
-            audioRef.current.muted = isMuted;
+            audioRef.current.addEventListener('ended', handleSongEnd);
+        } else {
+            // Update source if different
+            audioRef.current.src = currentSong.path;
         }
-    }, [isMuted]);
 
-    const handlePlayPause = () => {
+        audioRef.current.muted = isMuted;
+    }, [currentSong, isMuted]);
+
+    // Safely play audio
+    const safePlay = useCallback(async () => {
+        if (!audioRef.current) return;
+
+        try {
+            if (playPromiseRef.current) {
+                await playPromiseRef.current.catch(() => {});
+            }
+
+            // Ensure audio is ready
+            await new Promise<void>(resolve => {
+                if (audioRef.current?.readyState === 4) {
+                    resolve();
+                } else {
+                    audioRef.current?.addEventListener('canplaythrough', () => resolve(), {
+                        once: true,
+                    });
+                }
+            });
+
+            playPromiseRef.current = audioRef.current.play();
+            await playPromiseRef.current;
+            setIsPlaying(true);
+        } catch (error) {
+            console.error('Playback failed:', error);
+            setIsPlaying(false);
+        }
+    }, []);
+
+    // Safely pause audio
+    const safePause = useCallback(() => {
+        if (!audioRef.current) return;
+        audioRef.current.pause();
+        playPromiseRef.current = null;
+        setIsPlaying(false);
+    }, []);
+
+    // Handle song end
+    const handleSongEnd = useCallback(() => {
+        goToNextSong();
+    }, []);
+
+    // Play/Pause handler
+    const handlePlayPause = useCallback(() => {
         if (!hasInteracted) {
             setHasInteracted(true);
             setShowPrompt(false);
         }
 
-        if (audioRef.current) {
-            if (isPlaying) {
-                audioRef.current.pause();
-            } else {
-                audioRef.current.play().catch(error => {
-                    console.error('Playback failed:', error);
+        initializeAudio();
+
+        if (isPlaying) {
+            safePause();
+        } else {
+            safePlay();
+        }
+    }, [hasInteracted, isPlaying, initializeAudio, safePlay, safePause]);
+
+    const goToNextSong = useCallback(() => {
+        const nextIndex = (currentSongIndex + 1) % songs.length;
+        safePause();
+        setCurrentSongIndex(nextIndex);
+
+        initializeAudio();
+        if (isPlaying) {
+            const playSong = safePlay();
+
+            if (playSong) {
+                playSong.catch(() => {
+                    goToNextSong();
                 });
             }
-            setIsPlaying(!isPlaying);
         }
-    };
+    }, [currentSongIndex, isPlaying, initializeAudio, safePlay, safePause]);
 
-    const toggleMute = () => {
-        setIsMuted(!isMuted);
-    };
+    const goToPreviousSong = useCallback(() => {
+        const prevIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+        safePause();
+
+        setCurrentSongIndex(prevIndex);
+
+        initializeAudio();
+        if (isPlaying) {
+            safePlay();
+        }
+    }, [currentSongIndex, isPlaying, initializeAudio, safePlay, safePause]);
+
+    // Toggle mute
+    const toggleMute = useCallback(() => {
+        setIsMuted(prev => {
+            if (audioRef.current) {
+                audioRef.current.muted = !prev;
+            }
+            return !prev;
+        });
+    }, []);
+
+    // Cleanup on unmount
+    useEffect(() => {
+        const currentAudio = audioRef.current;
+        return () => {
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.removeEventListener('ended', handleSongEnd);
+            }
+        };
+    }, []);
 
     return (
         <>
@@ -91,10 +183,14 @@ const MusicPlayer: React.FC = () => {
 
                         {/* Song Info & Controls */}
                         <div>
-                            <h3 className="text-sm font-medium text-white">
-                                {songs[currentSong].title}
-                            </h3>
+                            <h3 className="text-sm font-medium text-white">{currentSong.title}</h3>
                             <div className="mt-1 flex items-center gap-2">
+                                <button
+                                    onClick={goToPreviousSong}
+                                    className="rounded-full p-1 transition-colors hover:bg-purple-500/20"
+                                >
+                                    <SkipBack className="h-5 w-5 text-white" />
+                                </button>
                                 <button
                                     onClick={handlePlayPause}
                                     className="rounded-full p-1 transition-colors hover:bg-purple-500/20"
@@ -104,6 +200,12 @@ const MusicPlayer: React.FC = () => {
                                     ) : (
                                         <Play className="h-5 w-5 text-white" />
                                     )}
+                                </button>
+                                <button
+                                    onClick={goToNextSong}
+                                    className="rounded-full p-1 transition-colors hover:bg-purple-500/20"
+                                >
+                                    <SkipForward className="h-5 w-5 text-white" />
                                 </button>
                                 <button
                                     onClick={toggleMute}

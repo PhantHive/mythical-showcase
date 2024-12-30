@@ -23,9 +23,9 @@ const House = () => {
     return (
         <section className="relative px-4 py-16">
             {/* Decorative Background */}
-            <div className="absolute inset-0 bg-gradient-to-b from-gray-800/50 to-purple-900/30" />
+            <div className="absolute inset-0 bg-gradient-to-b from-gray-800/10 to-purple-900/70" />
             <div className="absolute inset-0 bg-[url('/House/house.png')] bg-cover bg-center opacity-5" />
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-900/10 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-900/100 to-transparent" />
 
             {/* Content */}
             <div className="relative z-10">
