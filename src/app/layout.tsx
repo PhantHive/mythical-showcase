@@ -11,27 +11,27 @@ const basePath = process.env.GITHUB_PAGES ? new URL('https://mythical.phearion.f
 export const metadata: Metadata = {
     title: 'Mythical Bot - Magical Discord Adventure',
     description:
-        'Discover Mythical Bot: A unique Discord gaming experience featuring Luminals, Cardinals, and magical adventures. Collect creatures, customize your house, and join our enchanted community!',
+        'MYTHICAL BOT - The ultimate bot for your Discord server. Enhance your server with powerful features and seamless integration.',
     keywords:
-        'Mythical Bot, Discord Bot, Luminals, Cardinals, Discord Game, RPG Bot, Fantasy Game, Discord Adventure, Magical Creatures',
+        'MYTHICAL BOT, Discord, Bot, Features, Integration, Server, Luminals, Cardinals, Discord Game, RPG Bot, Fantasy Game, Discord Adventure, Magical Creatures',
     authors: [{ name: 'PhantHive' }],
     openGraph: {
         type: 'website',
-        title: 'Mythical Bot - Your Magical Discord Adventure',
+        title: 'MYTHICAL BOT',
         description:
-            'Embark on a magical journey! Collect Luminals, battle with Cardinals, customize your house, and explore an enchanted realm just within Discord!',
-        images: [{ url: `${basePath}/favicon.png` }],
-        url: 'https://phanthive.github.io/mythical-website/',
+            'The ultimate bot for your Discord server. Enhance your server with powerful features and seamless integration.',
+        images: [{ url: `${basePath}/Eggs/mystic-egg.png` }],
+        url: 'https://mythical.phearion.fr/',
         siteName: 'Mythical Bot',
     },
     twitter: {
         card: 'summary_large_image',
         site: '@PhantHive',
         creator: '@PhantHive',
-        title: 'Mythical Bot - Your Magical Discord Adventure',
+        title: 'MYTHICAL BOT',
         description:
-            'Join the magical world of Mythical Bot! Collect luminals, battle with Cardinals, and create your own house.',
-        images: [{ url: `${basePath}/favicon.png` }],
+            'The ultimate bot for your Discord server. Enhance your server with powerful features and seamless integration.',
+        images: [{ url: `${basePath}/Eggs/mystic-egg.png` }],
     },
     icons: {
         icon: [
@@ -55,6 +55,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
     themeColor: '#8B5CF6',
+    width: 'device-width',
+    initialScale: 1,
 };
 
 interface RootLayoutProps {
@@ -64,7 +66,58 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
     return (
         <html lang="en" className="scroll-smooth">
-            <body className={`${inter.className} bg-gray-900 text-white`}>{children}</body>
+            <head>
+                {/* Google Analytics */}
+                <script async src="https://www.googletagmanager.com/gtag/js?id=G-CXJWKW5N4C" />
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                            window.dataLayer = window.dataLayer || [];
+                            function gtag(){dataLayer.push(arguments);}
+                            gtag('js', new Date());
+                            gtag('config', 'G-CXJWKW5N4C');
+                        `,
+                    }}
+                />
+
+                {/* Additional Fonts */}
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap"
+                    rel="stylesheet"
+                />
+
+                {/* Paper Texture Filter */}
+                <svg width="0" height="0" style={{ position: 'absolute' }}>
+                    <filter id="roughpaper" x="0%" y="0%" width="100%" height="100%">
+                        <feTurbulence
+                            type="fractalNoise"
+                            baseFrequency="0.04"
+                            result="noise"
+                            numOctaves="5"
+                        />
+                        <feDiffuseLighting in="noise" lighting-color="#fff" surfaceScale="2">
+                            <feDistantLight azimuth="45" elevation="60" />
+                        </feDiffuseLighting>
+                    </filter>
+                </svg>
+            </head>
+            <body className={`${inter.className} bg-gray-900 text-white`}>
+                {children}
+
+                {/* Noscript Message */}
+                <noscript>
+                    <div
+                        style={{
+                            padding: '20px',
+                            textAlign: 'center',
+                            background: '#8b5cf6',
+                            color: 'white',
+                        }}
+                    >
+                        Please enable JavaScript to experience the magical world of Mythical Bot.
+                    </div>
+                </noscript>
+            </body>
         </html>
     );
 }
