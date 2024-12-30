@@ -113,7 +113,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                             result="noise"
                             numOctaves="5"
                         />
-                        <feDiffuseLighting in="noise" lighting-color="#fff" surfaceScale="2">
+                        <feDiffuseLighting in="noise" lightingColor="#fff" surfaceScale="2">
                             <feDistantLight azimuth="45" elevation="60" />
                         </feDiffuseLighting>
                     </filter>
