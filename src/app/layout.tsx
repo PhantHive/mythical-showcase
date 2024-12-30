@@ -20,7 +20,7 @@ export const metadata: Metadata = {
         title: 'Mythical Bot - Your Magical Discord Adventure',
         description:
             'Embark on a magical journey! Collect Luminals, battle with Cardinals, customize your house, and explore an enchanted realm just within Discord!',
-        images: [{ url: `${basePath}/Eggs/mystic-egg.png` }],
+        images: [{ url: `favicon.png` }],
         url: 'https://phanthive.github.io/mythical-website/',
         siteName: 'Mythical Bot',
     },
@@ -31,19 +31,19 @@ export const metadata: Metadata = {
         title: 'Mythical Bot - Your Magical Discord Adventure',
         description:
             'Join the magical world of Mythical Bot! Collect luminals, battle with Cardinals, and create your own house.',
-        images: [`${basePath}/Eggs/mystic-egg.png`],
+        images: [`favicon.png`],
     },
     icons: {
         icon: [
             {
-                url: `${basePath}/favicon.png`,
+                url: `favicon.png`,
                 sizes: '32x32',
                 type: 'image/png',
             },
         ],
         apple: [
             {
-                url: `${basePath}/favicon.png`,
+                url: `favicon.png`,
                 sizes: '180x180',
                 type: 'image/png',
             },
