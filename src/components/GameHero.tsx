@@ -33,7 +33,7 @@ const GameHero = () => {
             secondaryAction: {
                 label: 'Support Server',
                 icon: <FaDiscord />,
-                href: 'https://discord.gg/JJw53tsMcq',
+                href: 'https://discord.gg/9bfmjajSEt',
             },
         },
         {

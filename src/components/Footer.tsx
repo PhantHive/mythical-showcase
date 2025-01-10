@@ -91,18 +91,16 @@ const Footer: React.FC = () => {
                                 href="https://discord.com/oauth2/authorize?client_id=1250496056521654393&permissions=517611048032&integration_type=0&scope=bot+applications.commands"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center justify-center gap-2 rounded-lg bg-purple-600 px-4 py-2 text-white
-              transition-colors hover:bg-purple-700"
+                                className="flex items-center justify-center gap-2 rounded-lg bg-purple-600 px-4 py-2 text-white transition-colors hover:bg-purple-700"
                             >
                                 <FaDiscord className="text-xl" />
                                 <span>Add to Discord</span>
                             </a>
                             <a
-                                href="https://discord.gg/JJw53tsMcq"
+                                href="https://discord.gg/9bfmjajSEt"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center justify-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-white
-            transition-colors hover:bg-indigo-700"
+                                className="flex items-center justify-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-white transition-colors hover:bg-indigo-700"
                             >
                                 <FaUsers className="text-xl" />
                                 <span>Support Server</span>
