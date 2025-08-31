@@ -1,0 +1,86 @@
+{
+  "features": [
+    {
+      "id": "housing-custom",
+      "title": "Bring your style to your Housing",
+      "category": "Housing",
+      "description": "At level 5, you unlock the Housing feature. Customize your habitat with various themes, furniture, and decorations to create a unique environment for your Luminals and Cardinals.",
+      "image": "/assets/screenshots/house/carousel/house-custom.png",
+      "icon": "FaHome",
+      "color": "from-green-400 to-emerald-500"
+    },
+    {
+      "id": "housing-cardinals",
+      "title": "Play minigames in your home",
+      "category": "Housing",
+      "description": "Your Cardinals can visit when they have a playful mood. You can then choose if you want to play with them some minigames!",
+      "image": "/assets/screenshots/house/carousel/house-play.png",
+      "icon": "FaHome",
+      "color": "from-green-400 to-emerald-500"
+    },
+    {
+      "id": "hunt-explore",
+      "title": "Essence Hunt: Explore!",
+      "category": "Hunt",
+      "description": "Send your Luminals in one of our procedurally generated hunts! Explore diverse biomes, enconter special hunt Luminals, fight enemies, and gather resources.",
+      "image": "/assets/screenshots/hunt/carousel/hunt-explore.png",
+      "icon": "FaSearch",
+      "color": "from-orange-400 to-red-500"
+    },
+    {
+      "id": "hunt-battle",
+      "title": "Hunt battles!",
+      "category": "Hunt",
+      "description": "Engage in a turn-based battle system and earn a chance to win rare items.",
+      "image": "/assets/screenshots/hunt/carousel/hunt-battle.png",
+      "icon": "FaUsers",
+      "color": "from-orange-400 to-red-500"
+    },
+    {
+      "id": "hunt-management",
+      "title": "Hunt Management",
+      "category": "Hunt",
+      "description": "While your expedition is semi-idle, you can manage your hunts. Make it faster, safer, participate in events all during your hunt!",
+      "image": "/assets/screenshots/hunt/carousel/hunt-manage.png",
+      "icon": "FaClipboardList",
+      "color": "from-orange-400 to-red-500"
+    },
+    {
+      "id": "hunt-quest",
+      "title": "Hunt Quests",
+      "category": "Hunt",
+      "description": "Every day is unique, select the proposed environment and luminal to earn  more rewards!",
+      "image": "/assets/screenshots/hunt/carousel/hunt-quests.png",
+      "icon": "FaTree",
+      "color": "from-orange-400 to-red-500"
+    },
+    {
+      "id": "battle-virgo",
+      "title": "Constellation Battles",
+      "category": "Battle",
+      "description": "Engage in strategic turn-based battles with constellation alignment. Use zodiac powers and Cardinal abilities to defeat your opponent.",
+      "image": "/assets/screenshots/battle/carousel/battle-virgo.png",
+      "icon": "FaFistRaised",
+      "color": "from-red-400 to-orange-500"
+    },
+    {
+      "id": "infinite-realms",
+      "title": "Infinite Realms (PVE)",
+      "category": "Battle",
+      "description": "Discover endless battle arenas across 5 Constellation Realms. Each realm offers unique challenges and environmental advantages in combat.",
+      "image": "/assets/screenshots/battle/carousel/infinite-realms.png",
+      "icon": "FaGlobe",
+      "color": "from-red-400 to-orange-500"
+    },
+    {
+      "id": "achievements",
+      "title": "Achievement System",
+      "category": "Progress",
+      "description": "Track your progress across 300+ Discord servers. Complete challenges, unlock achievements, and earn exclusive rewards in our growing community. (yes we are new!)",
+      "image": "/assets/screenshots/achievements/achievements.png",
+      "icon": "FaTrophy",
+      "color": "from-yellow-400 to-orange-500"
+    }
+  ]
+}
+
