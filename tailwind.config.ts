@@ -12,6 +12,9 @@ export default {
                 background: 'var(--background)',
                 foreground: 'var(--foreground)',
             },
+            perspective: {
+                '1000': '1000px',
+            },
         },
     },
     plugins: [],

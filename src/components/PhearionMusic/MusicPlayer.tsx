@@ -9,14 +9,13 @@ interface Song {
 }
 
 const songs: Song[] = [
-    { title: 'Lumières de Phearion', path: '/songs/Lumières de Phearion.mp3' },
-    { title: "Phearion's warriors", path: "/songs/Phearion's warriors.mp3" },
+    { title: 'Wanderers of the Luminal World', path: '/songs/Wanderers of the Luminal World.mp3' }
 ];
 
 const chibiImages = [
-    '/Cardinals/Chibi/chibi-attack.png',
-    '/Cardinals/Chibi/chibi-defense.png',
-    '/Cardinals/Chibi/chibi-heal.png',
+    'assets/Cardinals/Chibi/chibi-attack.png',
+    'assets/Cardinals/Chibi/chibi-defense.png',
+    'assets/Cardinals/Chibi/chibi-heal.png',
 ];
 
 const MusicPlayer: React.FC = () => {
