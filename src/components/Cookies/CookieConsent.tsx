@@ -44,7 +44,7 @@ const CookieConsent = () => {
                                     {/* Cardinal Image */}
                                     <div className="relative h-24 w-24 flex-shrink-0 sm:h-32 sm:w-32">
                                         <Image
-                                            src="/Cardinals/heal-cardinal.png"
+                                            src="assets/Cardinals/heal-cardinal.png"
                                             alt="Cardinal Assistant"
                                             fill
                                             className="object-contain"
