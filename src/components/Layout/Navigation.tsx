@@ -251,7 +251,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentPath = '/' }) => {
 
                                                 {/* Card preview mini gallery */}
                                                 <div className="flex justify-center gap-3 pt-2">
-                                                    <div className="h-12 w-10 rounded bg-gradient-to-b from-gray-400 to-gray-600 opacity-60" />
+                                                    <div className="h-12 w-10 rounded bg-gradient-to-b from-green-400 to-green-600 opacity-60" />
                                                     <div className="h-12 w-10 rounded bg-gradient-to-b from-blue-400 to-blue-600 opacity-70" />
                                                     <div className="h-12 w-10 rounded bg-gradient-to-b from-purple-400 to-purple-600 opacity-80" />
                                                     <div className="h-12 w-10 rounded bg-gradient-to-b from-yellow-400 to-yellow-600 opacity-90" />

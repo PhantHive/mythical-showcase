@@ -64,17 +64,15 @@ export default function PrivacyPolicy() {
     }, []);
 
     return (
-        <div className="min-h-screen relative overflow-hidden">
+        <div className="relative min-h-screen overflow-hidden">
             {/* Animated Background */}
             <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900" />
 
             {/* Stars */}
-            <div className="fixed inset-0 pointer-events-none overflow-hidden">
-                {stars}
-            </div>
+            <div className="pointer-events-none fixed inset-0 overflow-hidden">{stars}</div>
 
             {/* MASSIVE Cardinal Skins positioned right at container borders */}
-            <div className="absolute inset-0 pointer-events-none overflow-hidden z-5">
+            <div className="z-5 pointer-events-none absolute inset-0 overflow-hidden">
                 {cardinalSkins.map((cardinal, index) => {
                     const yTransform = useTransform(
                         scrollYProgress,
@@ -95,27 +93,28 @@ export default function PrivacyPolicy() {
                     return (
                         <motion.div
                             key={index}
-                            className={`fixed ${index % 2 === 0
-                                ? 'right-2 lg:right-12 xl:right-16'
-                                : 'left-2 lg:left-12 xl:left-16'
+                            className={`fixed ${
+                                index % 2 === 0
+                                    ? 'right-2 lg:right-12 xl:right-16'
+                                    : 'left-2 lg:left-12 xl:left-16'
                             }`}
                             style={{
                                 y: yTransform,
                                 opacity,
                                 scale,
-                                top: `${10 + (index * 15)}%`,
+                                top: `${10 + index * 15}%`,
                                 zIndex: 5,
                             }}
                         >
                             <motion.div
                                 animate={{
                                     rotate: [0, 5, -5, 0],
-                                    y: [0, -15, 0]
+                                    y: [0, -15, 0],
                                 }}
                                 transition={{
                                     duration: 8,
                                     repeat: Infinity,
-                                    delay: index * 1.5
+                                    delay: index * 1.5,
                                 }}
                                 className="relative"
                             >
@@ -124,11 +123,11 @@ export default function PrivacyPolicy() {
                                     alt={cardinal.alt}
                                     width={400}
                                     height={400}
-                                    className="object-contain filter drop-shadow-2xl"
+                                    className="object-contain drop-shadow-2xl filter"
                                 />
                                 {/* Enhanced magical glow */}
-                                <div className="absolute inset-0 bg-gradient-to-r from-purple-400/50 to-pink-400/50 rounded-full blur-3xl -z-10" />
-                                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/30 to-purple-400/30 rounded-full blur-2xl -z-10 animate-pulse" />
+                                <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-purple-400/50 to-pink-400/50 blur-3xl" />
+                                <div className="absolute inset-0 -z-10 animate-pulse rounded-full bg-gradient-to-r from-yellow-400/30 to-purple-400/30 blur-2xl" />
                             </motion.div>
                         </motion.div>
                     );
@@ -137,7 +136,7 @@ export default function PrivacyPolicy() {
 
             {/* Main Content */}
             <div className="relative z-10 min-h-screen px-4 py-8">
-                <div className="max-w-7xl mx-auto">
+                <div className="mx-auto max-w-7xl">
                     {/* Back Button */}
                     <motion.a
                         href="#/"
@@ -149,55 +148,115 @@ export default function PrivacyPolicy() {
                         Return to Home
                     </motion.a>
 
-                    {/* Header */}
+                    {/* Header - Extremely reduced for mobile readability */}
                     <motion.div
-                        className="text-center mb-16"
+                        className="mb-4 text-center md:mb-8"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
                     >
-                        <div className="inline-flex items-center gap-4 mb-6">
-                            <FaShieldAlt className="text-5xl text-purple-400" />
-                            <h1 className="text-6xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent font-horizon">
+                        <div className="mb-1 inline-flex items-center gap-1 md:mb-3 md:gap-2">
+                            <FaShieldAlt className="text-sm text-purple-400 md:text-2xl lg:text-3xl" />
+                            <h1 className="font-horizon bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-base font-bold text-transparent md:text-3xl lg:text-4xl">
                                 Privacy Policy
                             </h1>
                         </div>
-                        <p className="text-2xl text-white font-medium">
+                        <p className="text-xs font-medium text-white md:text-base lg:text-lg">
                             Your privacy matters to us
                         </p>
                     </motion.div>
 
-                    {/* Content Container - Extra wide to accommodate huge Cardinals */}
+                    {/* Content Container - Extremely mobile-friendly */}
                     <motion.div
-                        className="bg-black/70 backdrop-blur-xl border border-white/30 rounded-3xl p-16 shadow-2xl mx-16 lg:mx-32"
+                        className="mx-1 rounded-md border border-white/30 bg-black/70 p-2 shadow-2xl backdrop-blur-xl md:mx-2 md:rounded-xl md:p-4 lg:mx-4 lg:p-6 xl:mx-8 xl:p-8"
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
                     >
+                        <style jsx global>{`
+                            .legal-content h2 {
+                                font-size: 0.875rem !important; /* 14px */
+                                margin-top: 1rem !important;
+                                margin-bottom: 0.5rem !important;
+                                color: #c084fc !important;
+                                font-weight: 600 !important;
+                            }
+                            .legal-content p {
+                                font-size: 0.75rem !important; /* 12px */
+                                line-height: 1.4 !important;
+                                margin-bottom: 0.75rem !important;
+                                border-left: none !important;
+                                padding-left: 0 !important;
+                                margin-left: 0 !important;
+                            }
+                            .legal-content ul {
+                                font-size: 0.75rem !important; /* 12px */
+                                margin: 0.5rem 0 !important;
+                                padding-left: 1rem !important;
+                                border-left: none !important;
+                            }
+                            .legal-content li {
+                                font-size: 0.75rem !important; /* 12px */
+                                line-height: 1.4 !important;
+                                margin-bottom: 0.5rem !important;
+                                border-left: none !important;
+                                padding-left: 0 !important;
+                            }
+                            .legal-content blockquote {
+                                border-left: none !important;
+                                padding-left: 0 !important;
+                                margin-left: 0 !important;
+                                font-style: normal !important;
+                            }
+                            @media (min-width: 768px) {
+                                .legal-content h2 {
+                                    font-size: 1.125rem !important; /* 18px */
+                                }
+                                .legal-content p,
+                                .legal-content ul,
+                                .legal-content li {
+                                    font-size: 0.875rem !important; /* 14px */
+                                    line-height: 1.5 !important;
+                                }
+                            }
+                            @media (min-width: 1024px) {
+                                .legal-content h2 {
+                                    font-size: 1.25rem !important; /* 20px */
+                                }
+                                .legal-content p,
+                                .legal-content ul,
+                                .legal-content li {
+                                    font-size: 1rem !important; /* 16px */
+                                    line-height: 1.6 !important;
+                                }
+                            }
+                        `}</style>
                         <div
-                            className="prose prose-invert prose-purple max-w-none legal-content"
+                            className="legal-content max-w-none text-white"
                             dangerouslySetInnerHTML={{ __html: privacyContent }}
                         />
 
-                        {/* Discord Links */}
-                        <div className="mt-20 pt-12 border-t border-white/40">
-                            <h3 className="text-2xl font-semibold text-purple-400 mb-6">Additional Resources</h3>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {/* Discord Links - Extremely mobile optimized */}
+                        <div className="mt-6 border-t border-white/40 pt-3 md:mt-12 md:pt-6">
+                            <h3 className="mb-2 text-sm font-semibold text-purple-400 md:mb-3 md:text-base lg:text-lg">
+                                Additional Resources
+                            </h3>
+                            <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-3">
                                 <a
                                     href="https://discord.com/terms"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="block p-6 bg-purple-600/20 border border-purple-400/30 rounded-xl text-purple-300 hover:text-purple-200 hover:bg-purple-600/30 transition-all text-lg"
+                                    className="block rounded-md border border-purple-400/30 bg-purple-600/20 p-2 text-xs text-purple-300 transition-all hover:bg-purple-600/30 hover:text-purple-200 md:p-3 md:text-sm lg:p-4 lg:text-base"
                                 >
-                                    Discord Terms of Service ↗
+                                    Discord Terms ↗
                                 </a>
                                 <a
                                     href="https://discord.com/privacy"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="block p-6 bg-purple-600/20 border border-purple-400/30 rounded-xl text-purple-300 hover:text-purple-200 hover:bg-purple-600/30 transition-all text-lg"
+                                    className="block rounded-md border border-purple-400/30 bg-purple-600/20 p-2 text-xs text-purple-300 transition-all hover:bg-purple-600/30 hover:text-purple-200 md:p-3 md:text-sm lg:p-4 lg:text-base"
                                 >
-                                    Discord Privacy Policy ↗
+                                    Discord Privacy ↗
                                 </a>
                             </div>
                         </div>
