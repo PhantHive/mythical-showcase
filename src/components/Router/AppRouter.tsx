@@ -8,6 +8,10 @@ import GameSections from '../Layout/GameSections';
 import TermsOfService from '@/pages/legal/terms/page';
 import PrivacyPolicy from '@/pages/legal/privacy/page';
 
+// Dynamically import the Luminals Collection page
+const LuminalsCollection = dynamic(() => import('@/app/collection/luminals/page'), {
+    ssr: false,
+});
 
 const AppRouter = () => {
     const [currentPath, setCurrentPath] = useState('/');
@@ -32,6 +36,18 @@ const AppRouter = () => {
                     <MainLayout currentPath={currentPath}>
                         <HeroSection />
                         <GameSections />
+                    </MainLayout>
+                );
+
+            case '/collection/luminals':
+                return (
+                    <MainLayout
+                        currentPath={currentPath}
+                        showNavigation={false}
+                        showFooter={false}
+                        showMusicPlayer={true}
+                    >
+                        <LuminalsCollection />
                     </MainLayout>
                 );
 
@@ -65,13 +81,17 @@ const AppRouter = () => {
             case '/shop':
                 return (
                     <MainLayout currentPath={currentPath}>
-                        <div className="min-h-screen flex items-center justify-center">
+                        <div className="flex min-h-screen items-center justify-center">
                             <div className="text-center">
-                                <h1 className="text-4xl font-bold text-white mb-4">Shop Coming Soon</h1>
-                                <p className="text-white/70">Get ready for amazing items and upgrades!</p>
+                                <h1 className="mb-4 text-4xl font-bold text-white">
+                                    Shop Coming Soon
+                                </h1>
+                                <p className="text-white/70">
+                                    Get ready for amazing items and upgrades!
+                                </p>
                                 <a
                                     href="#/"
-                                    className="inline-block mt-6 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                                    className="mt-6 inline-block rounded-lg bg-purple-600 px-6 py-3 text-white transition-colors hover:bg-purple-700"
                                 >
                                     Back to Home
                                 </a>
@@ -83,13 +103,17 @@ const AppRouter = () => {
             case '/login':
                 return (
                     <MainLayout currentPath={currentPath}>
-                        <div className="min-h-screen flex items-center justify-center">
+                        <div className="flex min-h-screen items-center justify-center">
                             <div className="text-center">
-                                <h1 className="text-4xl font-bold text-white mb-4">Discord Login Coming Soon</h1>
-                                <p className="text-white/70">Connect your Discord account for enhanced features!</p>
+                                <h1 className="mb-4 text-4xl font-bold text-white">
+                                    Discord Login Coming Soon
+                                </h1>
+                                <p className="text-white/70">
+                                    Connect your Discord account for enhanced features!
+                                </p>
                                 <a
                                     href="#/"
-                                    className="inline-block mt-6 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                                    className="mt-6 inline-block rounded-lg bg-purple-600 px-6 py-3 text-white transition-colors hover:bg-purple-700"
                                 >
                                     Back to Home
                                 </a>
@@ -106,10 +130,14 @@ const AppRouter = () => {
                 }
                 return (
                     <MainLayout currentPath="/">
-                        <div className="min-h-screen flex items-center justify-center">
+                        <div className="flex min-h-screen items-center justify-center">
                             <div className="text-center">
-                                <h1 className="text-6xl font-bold text-white mb-4">Redirecting...</h1>
-                                <p className="text-xl text-white/70 mb-6">Taking you to our magical 404 page...</p>
+                                <h1 className="mb-4 text-6xl font-bold text-white">
+                                    Redirecting...
+                                </h1>
+                                <p className="mb-6 text-xl text-white/70">
+                                    Taking you to our magical 404 page...
+                                </p>
                             </div>
                         </div>
                     </MainLayout>
@@ -139,6 +167,7 @@ export default dynamic(() => Promise.resolve(AppRouter), {
  * - Discord Login: Already prepared above, create LoginSection component
  * - Profile: Add case '/profile', create ProfileSection component
  * - Leaderboards: Add case '/leaderboards', create LeaderboardSection component
+ * - Luminals Collection: ✅ Added at /collection/luminals
  *
  * The MainLayout handles all common functionality (nav, footer, music player)
  * so you only need to focus on the specific page content.

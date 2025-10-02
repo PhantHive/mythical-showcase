@@ -1,0 +1,378 @@
+{
+    "fairy": {
+        "Lumi": {
+            "description": "Lumi was initially a flower in the phealands (place of Cardinals). It is said that a very pure Cardinal visited the flower and gave it life by whispering words of love. \nTheories: Lumi has been brought to Mythical by the same mysterious Cardinal...",
+            "class": ["flora"],
+            "nutrition": {
+                "favorite_food": ["vegetables"],
+                "allergic_food": ["meat"]
+            }
+        },
+        "Pawnee": {
+            "description": "Pawnee is a little luminal living in the forests. Pawnee protects the trees and the animals from any form of danger.\nTheories: Pawnee is the guardian of the forests.",
+            "class": ["flora"],
+            "nutrition": {
+                "favorite_food": ["meat"],
+                "allergic_food": ["seaweeds"]
+            }
+        },
+        "Pioupy": {
+            "description": "A cute pinguin coming from the cold lands. Pioupy decided to leave its family to explore the world and meet new friends.\nPioupy's best friend is Lumi.",
+            "class": ["water"],
+            "nutrition": {
+                "favorite_food": ["seaweeds", "fish"],
+                "allergic_food": ["vegetables"]
+            }
+        },
+        "Yumiko": {
+            "description": "Often seen sleeping, Yumiko is a very peaceful luminal. Yumiko will only awake to help others or to feed itself.\nAdvice: Yumiko is a very good listener, you can tell Yumiko all your secrets.",
+            "class": ["flora"],
+            "nutrition": {
+                "favorite_food": ["meat"],
+                "allergic_food": ["seaweeds"]
+            }
+        },
+        "Umella": {
+            "description": "Umella is an overthinker. She tries to find the meaning of life and the universe, why does she come from the same egg as other fairy luminals? Why does her head looks like a mushroom?\n*Umella thoughts: \"I am unique, I am special, I am Umella, the mushroom protects me from the rain, the rain gives me life, I am the rain, I am the mushroom, I am Umella.\"*",
+            "class": ["water"],
+            "nutrition": {
+                "favorite_food": ["mushrooms"],
+                "allergic_food": ["meat"]
+            }
+        },
+        "Mentari": {
+            "description": "Mentari supports Umella in her quest for the meaning of life. Mentari is a very positive luminal, always smiling and always ready to help others.\nTheories: without Mentari, Umella would have lost her mind.",
+            "class": ["fire"],
+            "nutrition": {
+                "favorite_food": ["potatoes"],
+                "allergic_food": ["fish"]
+            }
+        },
+        "Thundy": {
+            "description": "Coming straight from the thunder that snaps the logs of the Wildwood Realm, Thundy is a cute storm and flora luminal. Be cautious when approaching Thundy, electricity is flowing through and out of its body.",
+            "class": ["storm", "flora"],
+            "nutrition": {
+                "favorite_food": ["mushrooms"],
+                "allergic_food": ["meat"]
+            },
+            "special": {
+                "place": "Wildwood Realm"
+            }
+        },
+        "Raizu": {
+            "description": "One of the rare luminals able to fly, Raizy is always playing in the clouds with Mavi. They will often be seens racing in the sky.\nWhen they get tired, they will land on the clouds and play with Cloufy.\nLegend says that Raizu comes originally from a very rare species of luminals....",
+            "class": ["air"],
+            "nutrition": {
+                "favorite_food": ["vegetables", "meat"],
+                "allergic_food": ["fish"]
+            }
+        },
+        "Mavi": {
+            "description": "One of the rare luminals able to fly, Mavi is always playing in the clouds with Raizu. They will often be seen racing in the sky.\nWhen they get tired, they will land on the clouds and play with Cloufy.",
+            "class": ["air"],
+            "nutrition": {
+                "favorite_food": ["vegetables", "meat"],
+                "allergic_food": ["fish"]
+            }
+        },
+        "Merrycal": {
+            "description": "Smile to the world, and the world will smile at you. Merrycal is a very positive luminal who brings festive magic during winter celebrations but not only!\nMerrycal's power grows stronger with each smile it sees.",
+            "class": ["snow"],
+            "nutrition": {
+                "favorite_food": ["candy", "milk"],
+                "allergic_food": ["meat"]
+            },
+            "special": {
+                "event": "winter"
+            }
+        },
+        "Nowmi": {
+            "description": "Also called the little mythical princess of the snow, Nowmi is a luminal that loves to observe before acting.\nTheories says that she was the best friend of Snegurochka in another universe.",
+            "class": ["snow"],
+            "nutrition": {
+                "favorite_food": ["candy", "milk", "fish"],
+                "allergic_food": ["mushrooms"]
+            },
+            "special": {
+                "event": "winter"
+            }
+        },
+        "Brushy": {
+            "description": "Among all the fairies, Brushy is the one who looks more like a fairy, very friendly you can play with it.\nTheory said that Brushy was initially a brush teeth for Cardinals.",
+            "class": ["air"],
+            "nutrition": {
+                "favorite_food": ["fish"],
+                "allergic_food": ["candy"]
+            }
+        },
+        "Labali": {
+            "description": "Labali is a rare fairy Luminal that can only be found around Mythical temples dedicated to the Cardinals.\nLegend says that its name was given after the name of a famous city in another realm.",
+            "class": ["air"],
+            "nutrition": {
+                "favorite_food": ["milk"],
+                "allergic_food": ["candy"]
+            }
+        },
+        "Syrex": {
+            "description": "When hidding under the ground, Syrex heads can be confused witha stone, please be careful to not walk on it.\nLegend says that Syrex is the child of an extinct creature race.",
+            "class": ["flora"],
+            "nutrition": {
+                "favorite_food": ["apple", "meat"],
+                "allergic_food": ["milk"]
+            }
+        },
+        "Leafflo": {
+            "description": "From winter to spring this Luminal can adapt perfectly to every weather. Leafflo will carry flowers in its way to spring.\nLegend says that he can be seen as white during winter.",
+            "class": ["flora", "snow"],
+            "nutrition": {
+                "favorite_food": ["apple"],
+                "allergic_food": ["mushrooms"]
+            }
+        },
+        "Aviva": {
+            "description": "Gliding through the wind, Aviva luminals like to move from tree to tree. Born in the wildwood forest of Mythical, Aviva help flowers to grow in trees.",
+            "class": ["flora"],
+            "nutrition": {
+                "favorite_food": ["vegetables"],
+                "allergic_food": ["milk", "meat"]
+            }
+        }
+    },
+    "enchanted": {
+        "Faber": {
+            "description": "Faber is the first neko to exist, it is said that Faber should have been ranked as a mystic luminal, but Faber decided to stay with the enchanted luminals because of its love for her sister, Prismetia.",
+            "class": ["neko"],
+            "nutrition": {
+                "favorite_food": ["meat", "milk"],
+                "allergic_food": ["seaweeds"]
+            }
+        },
+        "Pandora": {
+            "description": "Pandora comes from the enchanted forests. With ears in forms of wings, Pandora can hear the slightest noise from miles away.\nTheories: it is said that Pandora has lost the ability to fly due to a curse.",
+            "class": ["flora"],
+            "nutrition": {
+                "favorite_food": ["mushrooms"],
+                "allergic_food": ["meat"]
+            }
+        },
+        "Prismetia": {
+            "description": "Sister of Faber, she perceive colors in a different way than us. Prismetia is able to see the colors of the emotions of the people.\nPrismetia is a very shy luminal, and doesn't like to be in the spotlight.",
+            "class": ["neko"],
+            "nutrition": {
+                "favorite_food": ["vegetables", "milk"],
+                "allergic_food": ["meat"]
+            }
+        },
+        "Vegat": {
+            "description": "A nocturne cat, Vegat has a high sense of smell and can see in the dark. Vegat is a neko luminal, and seems to be a big dreamer...\nApparently, Vegat is a far cousin of Faber.",
+            "class": ["neko"],
+            "nutrition": {
+                "favorite_food": ["meat", "milk"],
+                "allergic_food": ["seaweeds"]
+            }
+        },
+        "Blutari": {
+            "description": "Brother of Redari, Blutari was born in the deepest oceans, it is said that Blutari is able to control the rivers and oceans.",
+            "class": ["water", "air"],
+            "nutrition": {
+                "favorite_food": ["fish"],
+                "allergic_food": ["potatoes"]
+            }
+        },
+        "Redari": {
+            "description": "Sister of Blutari, Redari was born in the deepest volcano, it is said that Redari is able to control the volcanoes and the lava.",
+            "class": ["fire", "air"],
+            "nutrition": {
+                "favorite_food": ["potatoes"],
+                "allergic_food": ["fish"]
+            }
+        },
+        "Cloufy": {
+            "description": "Child of the clouds, Cloufy is the first form of living cloud in the world, with its ability to speak and to have legs and arms. Since then, Cloufy has been able to reproduce itself and create a whole new species of cloud luminals.",
+            "class": ["air"],
+            "nutrition": {
+                "favorite_food": ["milk", "apple"],
+                "allergic_food": []
+            }
+        },
+        "PoliPoli": {
+            "description": "Always happy, PoliPoli is a very positive neko luminal. Legend says that its fur is made of cotton candy, you may want to try it but be cautious, PoliPoli hates that people touch its hair. Every morning, PoliPoli will clean its fur for hours.",
+            "class": ["neko"],
+            "nutrition": {
+                "favorite_food": ["milk", "candy"],
+                "allergic_food": ["meat"]
+            }
+        },
+        "Wadoon": {
+            "description": "Wadoon is a very friendly luminal, its type lives in the Wildwood Forests and only loves the fall season. During the fall, Wadoon is able to create a beautiful light show with its body. Other seasons, Wadoon will stay hidden in the trees and only come out to find apples.",
+            "class": ["storm", "flora"],
+            "nutrition": {
+                "favorite_food": ["apple"],
+                "allergic_food": ["meat"]
+            },
+            "special": {
+                "place": "Wildwood Realm"
+            }
+        },
+        "Blizou": {
+            "descriptio": "Blizou is a very curious Luminal. It is said that Blizou was built by cardinal girls playing with enchanted snow to make a snowman friend. Blizou is a very friendly luminal, and will always be happy to play with you.\nTheories: Blizou is the guardian of the enchanted snow. It is said that Blizou can control the snow and the ice thanks to it's magical stone that we can see.",
+            "class": ["snow"],
+            "nutrition": {
+                "favorite_food": ["candy", "milk"],
+                "allergic_food": []
+            },
+            "special": {
+                "event": "winter"
+            }
+        },
+        "Huky": {
+            "descriptio": "Watch out for every rooftop, this luminal loves to chill on top of houses during the winter season. Very friendly and loyal, Huky will follow you everywhere during your adventure.\nTheories says that Huky can only glide with its wings but not fly.",
+            "class": ["snow", "air"],
+            "nutrition": {
+                "favorite_food": ["candy", "meat"],
+                "allergic_food": ["fish"]
+            },
+            "special": {
+                "event": "winter"
+            }
+        },
+        "Zahakyu": {
+            "descriptio": "Zahakyu is a very rare species of Luminal. Its origins are close from the mythical dragons. During the winter season, Zahakyu checks every winter tree to judge their decorations.\nNote: if you are decorating a tree in your world, Zahakyu might comes to visit you. As a dragon would, Zahakyu can fly very high and far without getting tired.",
+            "class": ["snow", "air"],
+            "nutrition": {
+                "favorite_food": ["candy", "vegetables"],
+                "allergic_food": ["meat"]
+            },
+            "special": {
+                "event": "winter"
+            }
+        },
+        "Cocogii": {
+            "description": "In some oasis of the Sunbaked Desert, it is sayed that there is no coconut trees but Cocogii is one marvelous Luminal that plays the same role as those trees! It is said that they can produce infinite sweet coco juice from their ears.",
+            "class": ["water", "flora"],
+            "nutrition": {
+                "favorite_food": ["apple", "vegetables"],
+                "allergic_food": ["meat"]
+            }
+        }
+    },
+    "mystic": {
+        "Nufair": {
+            "description": "We don't know much about Nufair, the number one on its body suggest that Nufair is the first mystic luminal to be born.\nAdvice: Nufair stays a dark and lonely luminal, be cautious.",
+            "class": ["dark"],
+            "nutrition": {
+                "favorite_food": ["vegetables"],
+                "allergic_food": ["meat"]
+            }
+        },
+        "Yume": {
+            "description": "Yume is the opposite of Nufair and is a light luminal, the number two on its body suggest that Yume is the second mystic luminal to be born.\nTheories suggest that Yume is the guardian of the dreams and might have been created by Nufair.",
+            "class": ["light", "neko"],
+            "nutrition": {
+                "favorite_food": ["fish"],
+                "allergic_food": []
+            }
+        },
+        "Solarian": {
+            "description": "Solarian is the guardian of the sun, it is said that Solarian is the one who created the sun and the moon.\nYou may think that Solarian is a far cousin from Nufair, and that might be true...",
+            "class": ["fire", "light"],
+            "nutrition": {
+                "favorite_food": ["meat"],
+                "allergic_food": ["vegetables"]
+            }
+        },
+        "Oltar": {
+            "description": "kra-ka-thoom! From storm-wreathed heights descends the mighty Oltar, guardian of the thunder. Oltar is a storm luminal, and is said to be the most powerful of all storm luminals. Oltar is a protector of the Wildwood Realm, and is said to be the only luminal capable of controlling thunder at will.",
+            "class": ["storm", "flora"],
+            "nutrition": {
+                "favorite_food": ["apple"],
+                "allergic_food": []
+            },
+            "special": {
+                "place": "Wildwood Realm"
+            }
+        },
+        "Woka": {
+            "description": "It is said that Woka is the guardian of a far snow realm. When winter approach, Woka will be the best partner to Santa Claus to deliver the gifts to the children within the Mythical Realm.\nWoka's species is a majestic one. Theories suggest that Woka is the ancestor of all snow luminals. Woka can fly.",
+            "class": ["snow", "air"],
+            "nutrition": {
+                "favorite_food": ["candy", "milk"],
+                "allergic_food": ["meat"]
+            },
+            "special": {
+                "event": "winter"
+            }
+        },
+        "Aslow": {
+            "description": "King of the winter wonderland, Aslow rules on the top of the highest mountain of the Mythical Realm. Every snow luminal shows respect to Aslow.\nHard to approach, but will be the best companion you could have during all seasons. In the Mythical Realm, legends say that Aslow tiger specie is the best friend of humans.",
+            "class": ["snow"],
+            "nutrition": {
+                "favorite_food": ["candy", "milk", "fish", "meat"],
+                "allergic_food": ["mushrooms"]
+            },
+            "special": {
+                "event": "winter"
+            }
+        },
+        "Nalil": {
+            "description": "Guardian of all the flowers, Nalil brings spring when Woka enter into a deep sleep. During this period, Nalil protect each fowers even the most tiny one such as Lily and Tulips.\nConfident and proud of wearing those 7 golden rings around its chest, Nalil is considered the 7th marvelous Luminal in Mythical.",
+            "class": ["flora", "air"],
+            "nutrition": {
+                "favorite_food": ["potatoes", "apple"],
+                "allergic_food": ["meat"]
+            }
+        },
+        "Natsu": {
+            "description": "Dogs are the best friends of humans except for... Mythical's samurais! Natsu is their fellow companion. Natsu leads the way in the Sunbaked Desert as he is considered as the King of the Summer.",
+            "class": ["fire"],
+            "nutrition": {
+                "favorite_food": ["fish", "seaweeds"],
+                "allergic_food": []
+            }
+        },
+        "Flaneris": {
+            "description": "Flaneris eggs can be found only in holy waters where Mythical's samurais kids play. Flaneris are very friendly and loves to play with kids in the water. Legends says that each Flaneris appears with a swimming ring that was given by a kid. Flaneris mystic power lies in the way she can control the sea waves.",
+            "class": ["water", "air"],
+            "nutrition": {
+                "favorite_food": ["fish"],
+                "allergic_food": ["meat"]
+            }
+        },
+        "Ala": {
+            "description": "PLACEHOLDER",
+            "class": ["fire", "air", "light"],
+            "nutrition": {
+                "favorite_food": ["fish", "meat"],
+                "allergic_food": ["vegetables"]
+            },
+            "special": {
+                "source": "TCG",
+                "boss_association": "Ena"
+            }
+        },
+        "Ina": {
+            "description": "PLACEHOLDER",
+            "class": ["water", "air", "light"],
+            "nutrition": {
+                "favorite_food": ["potatoes", "fish"],
+                "allergic_food": ["candy"]
+            },
+            "special": {
+                "source": "TCG",
+                "boss_association": "Erza"
+            }
+        },
+        "Alina": {
+            "description": "PLACEHOLDER",
+            "class": ["flora", "air", "light"],
+            "nutrition": {
+                "favorite_food": ["vegetables", "apple"],
+                "allergic_food": ["meat"]
+            },
+            "special": {
+                "source": "TCG",
+                "boss_association": "Esen"
+            }
+        }
+    }
+}

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
+import { FaBars, FaTimes, FaChevronDown, FaGem } from 'react-icons/fa';
 import ActionButtons from './ActionButtons';
 
 interface NavigationProps {
@@ -15,6 +15,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentPath = '/' }) => {
     const [activeSection, setActiveSection] = useState('home');
     const [isMobile, setIsMobile] = useState(false);
     const [tcgDropdownOpen, setTcgDropdownOpen] = useState(false);
+    const [collectionDropdownOpen, setCollectionDropdownOpen] = useState(false);
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
@@ -64,7 +65,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentPath = '/' }) => {
         } else {
             const element = document.getElementById(sectionId);
             if (element) {
-                const offsetTop = element.offsetTop - 80; // Account for fixed navbar
+                const offsetTop = element.offsetTop - 80;
                 window.scrollTo({ top: offsetTop, behavior: 'smooth' });
             }
         }
@@ -73,9 +74,17 @@ const Navigation: React.FC<NavigationProps> = ({ currentPath = '/' }) => {
 
     const navigateToTCG = () => {
         if (typeof window !== 'undefined') {
-            window.location.href = '/tcg';
+            window.location.href = '/collection/tcg';
         }
         setTcgDropdownOpen(false);
+        setIsOpen(false);
+    };
+
+    const navigateToLuminalsCollection = () => {
+        if (typeof window !== 'undefined') {
+            window.location.href = '/collection/luminals';
+        }
+        setCollectionDropdownOpen(false);
         setIsOpen(false);
     };
 
@@ -86,51 +95,107 @@ const Navigation: React.FC<NavigationProps> = ({ currentPath = '/' }) => {
             <nav
                 className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
                     isScrolled
-                        ? 'border-b border-white/10 bg-black/80 py-1 shadow-xl backdrop-blur-lg'
-                        : 'bg-transparent py-3'
-                } `}
+                        ? 'border-b border-white/10 bg-black/80 py-2 shadow-xl backdrop-blur-md'
+                        : 'bg-transparent py-4'
+                }`}
             >
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div
-                        className={`flex items-center justify-between ${isMobile ? 'h-16' : 'h-20'}`}
+                        className={`flex items-center justify-between ${isMobile ? 'h-14' : 'h-16'}`}
                     >
                         {/* Logo */}
-                        <motion.div
-                            className="flex cursor-pointer items-center"
+                        <div
+                            className="flex cursor-pointer items-center transition-transform duration-200 hover:scale-105"
                             onClick={() => scrollToSection('home')}
-                            whileHover={isMobile ? {} : { scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
                         >
                             <span
-                                className={`${isMobile ? 'text-2xl' : 'text-3xl'} font-horizon bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text font-bold text-transparent`}
+                                className={`${isMobile ? 'text-xl' : 'text-2xl'} font-horizon bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text font-bold text-transparent`}
                             >
                                 MYTHICAL
                             </span>
-                        </motion.div>
+                        </div>
 
                         {/* Desktop Navigation */}
-                        <div className="hidden items-center space-x-8 lg:flex">
+                        <div className="hidden items-center space-x-6 lg:flex">
                             {navItems.map(item => (
-                                <motion.button
+                                <button
                                     key={item.label}
                                     onClick={() => scrollToSection(item.href)}
-                                    className={`relative rounded-lg px-4 py-3 text-lg font-medium transition-all duration-200 ${
+                                    className={`relative px-3 py-2 text-base font-medium transition-colors duration-200 ${
                                         activeSection === item.id
-                                            ? 'font-bold text-purple-400'
-                                            : 'text-white/80 hover:bg-white/10 hover:text-white'
-                                    } `}
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
+                                            ? 'text-purple-400'
+                                            : 'text-white/80 hover:text-white'
+                                    }`}
                                 >
                                     {item.label}
                                     {activeSection === item.id && (
                                         <motion.div
                                             layoutId="activeSection"
-                                            className="absolute bottom-0 left-0 right-0 h-0.5 rounded-full bg-gradient-to-r from-purple-400 to-pink-500"
+                                            className="absolute bottom-0 left-0 right-0 h-0.5 bg-purple-400"
+                                            transition={{
+                                                type: 'spring',
+                                                stiffness: 400,
+                                                damping: 30,
+                                            }}
                                         />
                                     )}
-                                </motion.button>
+                                </button>
                             ))}
+
+                            {/* Collection Dropdown */}
+                            <div
+                                className="relative"
+                                onMouseEnter={() => setCollectionDropdownOpen(true)}
+                                onMouseLeave={() => setCollectionDropdownOpen(false)}
+                            >
+                                <button
+                                    className={`flex items-center gap-1 px-3 py-2 text-base font-medium text-white/80 transition-colors duration-200 hover:text-white ${
+                                        collectionDropdownOpen ? 'text-white' : ''
+                                    }`}
+                                >
+                                    Collection
+                                    <FaChevronDown
+                                        className={`text-xs transition-transform duration-200 ${
+                                            collectionDropdownOpen ? 'rotate-180' : ''
+                                        }`}
+                                    />
+                                </button>
+
+                                {/* Collection Dropdown Menu */}
+                                <AnimatePresence>
+                                    {collectionDropdownOpen && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: -10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: -10 }}
+                                            transition={{ duration: 0.15 }}
+                                            className="absolute left-0 top-full mt-2 w-80 rounded-xl border border-white/10 bg-black/95 p-4 shadow-xl backdrop-blur-sm"
+                                        >
+                                            <button
+                                                onClick={navigateToLuminalsCollection}
+                                                className="group w-full rounded-lg border border-white/10 p-4 text-left transition-colors duration-200 hover:border-white/20 hover:bg-white/5"
+                                            >
+                                                <div className="flex items-center justify-between">
+                                                    <div>
+                                                        <div className="mb-1 flex items-center gap-2">
+                                                            <FaGem className="text-sm text-blue-400" />
+                                                            <h4 className="font-medium text-white">
+                                                                Luminals Collection
+                                                            </h4>
+                                                        </div>
+                                                        <p className="text-sm text-white/60">
+                                                            View all 41 magical Luminals
+                                                        </p>
+                                                    </div>
+                                                    <div className="text-blue-400 transition-transform duration-200 group-hover:translate-x-1">
+                                                        →
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
 
                             {/* TCG Dropdown */}
                             <div
@@ -138,127 +203,57 @@ const Navigation: React.FC<NavigationProps> = ({ currentPath = '/' }) => {
                                 onMouseEnter={() => setTcgDropdownOpen(true)}
                                 onMouseLeave={() => setTcgDropdownOpen(false)}
                             >
-                                <motion.button
-                                    className="relative flex items-center gap-2 rounded-lg px-4 py-3 text-lg font-medium text-white/80 transition-all duration-200 hover:bg-white/10 hover:text-white"
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
+                                <button
+                                    className={`flex items-center gap-1 px-3 py-2 text-base font-medium text-white/80 transition-colors duration-200 hover:text-white ${
+                                        tcgDropdownOpen ? 'text-white' : ''
+                                    }`}
                                 >
                                     MYTHICAL TCG
-                                    {mounted && (
-                                        <FaChevronDown
-                                            className={`transition-transform duration-200 ${tcgDropdownOpen ? 'rotate-180' : ''}`}
-                                            size={12}
-                                        />
-                                    )}
-                                </motion.button>
+                                    <FaChevronDown
+                                        className={`text-xs transition-transform duration-200 ${
+                                            tcgDropdownOpen ? 'rotate-180' : ''
+                                        }`}
+                                    />
+                                </button>
 
-                                {/* TCG Dropdown Menu - Massive Banner, Clean Display */}
+                                {/* TCG Dropdown Menu */}
                                 <AnimatePresence>
                                     {tcgDropdownOpen && (
                                         <motion.div
-                                            initial={{ opacity: 0, y: -15, scale: 0.9 }}
-                                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                                            exit={{ opacity: 0, y: -15, scale: 0.9 }}
-                                            transition={{ duration: 0.3, ease: 'easeOut' }}
-                                            className="absolute left-0 top-full mt-3 w-[650px] overflow-hidden rounded-2xl border-2 border-purple-500/30 bg-black/95 shadow-2xl backdrop-blur-2xl"
-                                            style={{
-                                                boxShadow:
-                                                    '0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(147, 51, 234, 0.3)',
-                                            }}
+                                            initial={{ opacity: 0, y: -10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: -10 }}
+                                            transition={{ duration: 0.15 }}
+                                            className="absolute left-0 top-full mt-2 w-96 overflow-hidden rounded-xl border border-white/10 bg-black/95 shadow-xl backdrop-blur-sm"
                                         >
-                                            {/* MASSIVE Clean Card Banner - Full Width Display */}
-                                            <div className="relative h-80 overflow-hidden">
+                                            {/* Simplified banner */}
+                                            <div className="h-32 overflow-hidden">
                                                 <img
                                                     src="/assets/tcg/card-banner.png"
                                                     alt="TCG Banner"
-                                                    className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                                                    className="h-full w-full object-cover"
                                                 />
-                                                {/* Minimal overlay only at very bottom */}
-                                                <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-black/50 to-transparent" />
-
-                                                {/* Subtle sparkles */}
-                                                <div className="absolute inset-0 opacity-30">
-                                                    <div
-                                                        className="absolute left-20 top-10 h-2 w-2 animate-pulse rounded-full bg-yellow-400"
-                                                        style={{ animationDelay: '0s' }}
-                                                    />
-                                                    <div
-                                                        className="absolute right-28 top-24 h-1.5 w-1.5 animate-pulse rounded-full bg-pink-400"
-                                                        style={{ animationDelay: '0.8s' }}
-                                                    />
-                                                    <div
-                                                        className="absolute bottom-24 left-28 h-1 w-1 animate-pulse rounded-full bg-purple-400"
-                                                        style={{ animationDelay: '1.6s' }}
-                                                    />
-                                                    <div
-                                                        className="absolute bottom-20 right-24 h-2 w-2 animate-pulse rounded-full bg-cyan-400"
-                                                        style={{ animationDelay: '2.4s' }}
-                                                    />
-                                                    <div
-                                                        className="absolute right-16 top-16 h-1 w-1 animate-pulse rounded-full bg-yellow-300"
-                                                        style={{ animationDelay: '3.2s' }}
-                                                    />
-                                                    <div
-                                                        className="absolute bottom-16 left-16 h-1.5 w-1.5 animate-pulse rounded-full bg-pink-300"
-                                                        style={{ animationDelay: '4s' }}
-                                                    />
-                                                </div>
                                             </div>
 
-                                            {/* Dropdown Options */}
-                                            <div className="space-y-4 p-6">
-                                                <motion.button
+                                            <div className="p-4">
+                                                <button
                                                     onClick={navigateToTCG}
-                                                    className="group relative w-full overflow-hidden"
-                                                    whileHover={{ scale: 1.02 }}
-                                                    whileTap={{ scale: 0.98 }}
+                                                    className="group w-full rounded-lg border border-white/10 p-4 text-left transition-colors duration-200 hover:border-white/20 hover:bg-white/5"
                                                 >
-                                                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-600/20 to-pink-600/20 transition-all duration-300 group-hover:from-purple-600/30 group-hover:to-pink-600/30" />
-                                                    <div className="relative rounded-xl border border-white/10 px-6 py-4 text-left transition-all duration-300 group-hover:border-white/20">
-                                                        <div className="flex items-center justify-between">
-                                                            <div>
-                                                                <h4 className="font-horizon mb-1 text-lg font-bold text-white">
-                                                                    See All Cards
-                                                                </h4>
-                                                                <p className="text-sm text-white/70">
-                                                                    Explore the complete collection
-                                                                    of 15 unique cards
-                                                                </p>
-                                                            </div>
-                                                            <motion.div
-                                                                className="text-purple-400 transition-colors group-hover:text-pink-400"
-                                                                whileHover={{ x: 5 }}
-                                                            >
-                                                                {mounted && (
-                                                                    <svg
-                                                                        className="h-6 w-6"
-                                                                        fill="none"
-                                                                        stroke="currentColor"
-                                                                        viewBox="0 0 24 24"
-                                                                    >
-                                                                        <path
-                                                                            strokeLinecap="round"
-                                                                            strokeLinejoin="round"
-                                                                            strokeWidth={2}
-                                                                            d="M17 8l4 4m0 0l-4 4m4-4H3"
-                                                                        />
-                                                                    </svg>
-                                                                )}
-                                                            </motion.div>
+                                                    <div className="flex items-center justify-between">
+                                                        <div>
+                                                            <h4 className="mb-1 font-medium text-white">
+                                                                See All Cards
+                                                            </h4>
+                                                            <p className="text-sm text-white/60">
+                                                                Explore 15 unique cards
+                                                            </p>
+                                                        </div>
+                                                        <div className="text-purple-400 transition-transform duration-200 group-hover:translate-x-1">
+                                                            →
                                                         </div>
                                                     </div>
-                                                </motion.button>
-
-                                                {/* Card preview mini gallery */}
-                                                <div className="flex justify-center gap-3 pt-2">
-                                                    <div className="h-12 w-10 rounded bg-gradient-to-b from-green-400 to-green-600 opacity-60" />
-                                                    <div className="h-12 w-10 rounded bg-gradient-to-b from-blue-400 to-blue-600 opacity-70" />
-                                                    <div className="h-12 w-10 rounded bg-gradient-to-b from-purple-400 to-purple-600 opacity-80" />
-                                                    <div className="h-12 w-10 rounded bg-gradient-to-b from-yellow-400 to-yellow-600 opacity-90" />
-                                                </div>
-                                                <p className="mt-2 text-center text-sm font-medium text-white/50">
-                                                    C • R • SR • SSR
-                                                </p>
+                                                </button>
                                             </div>
                                         </motion.div>
                                     )}
@@ -271,104 +266,68 @@ const Navigation: React.FC<NavigationProps> = ({ currentPath = '/' }) => {
                             <ActionButtons variant="compact" showTopGG={false} />
                         </div>
 
-                        {/* Mobile Menu Button - Enhanced for touch */}
+                        {/* Mobile Menu Button */}
                         <div className="lg:hidden">
-                            <motion.button
+                            <button
                                 onClick={() => setIsOpen(!isOpen)}
-                                className={`mobile-touch-target rounded-lg p-3 text-white transition-colors hover:bg-white/10`}
-                                whileTap={{ scale: 0.95 }}
+                                className="rounded-lg p-2 text-white transition-colors hover:bg-white/10"
                             >
-                                {mounted &&
-                                    (isOpen ? (
-                                        <FaTimes size={isMobile ? 20 : 24} />
-                                    ) : (
-                                        <FaBars size={isMobile ? 20 : 24} />
-                                    ))}
-                            </motion.button>
+                                {isOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+                            </button>
                         </div>
                     </div>
                 </div>
             </nav>
 
-            {/* Mobile Menu - Optimized */}
+            {/* Mobile Menu */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: isMobile ? 0.15 : 0.2 }}
-                        className="mobile-simple fixed inset-0 z-40 lg:hidden"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="fixed inset-0 z-40 lg:hidden"
                     >
-                        <div
-                            className={`h-full bg-black/95 backdrop-blur-xl ${isMobile ? 'px-2 pt-20' : 'px-4 pt-24'}`}
-                        >
-                            <div className="space-y-6">
+                        <div className="h-full bg-black/95 px-4 pt-20 backdrop-blur-sm">
+                            <div className="space-y-4">
                                 {/* Mobile Navigation Items */}
-                                <div className="space-y-3">
-                                    {navItems.map((item, index) => (
-                                        <motion.button
+                                <div className="space-y-2">
+                                    {navItems.map(item => (
+                                        <button
                                             key={item.label}
                                             onClick={() => scrollToSection(item.href)}
-                                            className={`block w-full text-left ${isMobile ? 'px-4 py-3' : 'px-6 py-4'} rounded-xl font-medium ${isMobile ? 'text-lg' : 'text-xl'} mobile-touch-target transition-all ${
+                                            className={`block w-full rounded-lg px-4 py-3 text-left text-lg font-medium transition-colors ${
                                                 activeSection === item.id
-                                                    ? 'bg-purple-400/20 font-bold text-purple-400'
+                                                    ? 'bg-purple-400/20 text-purple-400'
                                                     : 'text-white hover:bg-white/10'
-                                            } `}
-                                            initial={{ opacity: 0, x: -20 }}
-                                            animate={{ opacity: 1, x: 0 }}
-                                            transition={{ delay: index * (isMobile ? 0.05 : 0.1) }}
+                                            }`}
                                         >
                                             {item.label}
-                                        </motion.button>
+                                        </button>
                                     ))}
 
+                                    {/* Mobile Collection Button */}
+                                    <button
+                                        onClick={navigateToLuminalsCollection}
+                                        className="block w-full rounded-lg px-4 py-3 text-left text-lg font-medium text-white transition-colors hover:bg-white/10"
+                                    >
+                                        Luminals Collection
+                                    </button>
+
                                     {/* Mobile TCG Button */}
-                                    <motion.button
+                                    <button
                                         onClick={navigateToTCG}
-                                        className={`block w-full text-left ${isMobile ? 'px-4 py-3' : 'px-6 py-4'} rounded-xl font-medium ${isMobile ? 'text-lg' : 'text-xl'} mobile-touch-target text-white transition-all hover:bg-white/10`}
-                                        initial={{ opacity: 0, x: -20 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        transition={{
-                                            delay: navItems.length * (isMobile ? 0.05 : 0.1),
-                                        }}
+                                        className="block w-full rounded-lg px-4 py-3 text-left text-lg font-medium text-white transition-colors hover:bg-white/10"
                                     >
                                         MYTHICAL TCG
-                                    </motion.button>
+                                    </button>
                                 </div>
 
                                 {/* Mobile Action Buttons */}
-                                <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: isMobile ? 0.2 : 0.3 }}
-                                    className="border-t border-white/20 pt-8"
-                                >
+                                <div className="border-t border-white/20 pt-6">
                                     <ActionButtons variant="section" className="flex-col" />
-                                </motion.div>
-
-                                {/* Additional Links */}
-                                <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: isMobile ? 0.25 : 0.4 }}
-                                    className="space-y-3 pt-8 text-center"
-                                >
-                                    <a
-                                        href="#/privacy"
-                                        className={`block text-white/60 transition-colors hover:text-white ${isMobile ? 'text-base' : 'text-lg'} mobile-touch-target`}
-                                        onClick={() => setIsOpen(false)}
-                                    >
-                                        Privacy Policy
-                                    </a>
-                                    <a
-                                        href="#/terms"
-                                        className={`block text-white/60 transition-colors hover:text-white ${isMobile ? 'text-base' : 'text-lg'} mobile-touch-target`}
-                                        onClick={() => setIsOpen(false)}
-                                    >
-                                        Terms of Service
-                                    </a>
-                                </motion.div>
+                                </div>
                             </div>
                         </div>
                     </motion.div>
